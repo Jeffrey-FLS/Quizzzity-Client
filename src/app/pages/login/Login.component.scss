@@ -1,0 +1,411 @@
+/**
+* Example of property order and category naming convention for comment
+********************************************************************************
+* .class {
+*  //------------------------- Font & Text
+*    text-align: val;
+*    text-shadow: val;
+*  //------------------------- Color & Background
+*    background-color: val;
+*    color: val;
+*    opacity: val;
+*  //------------------------- Box
+*    height: val;
+*    width: val;
+*    border-radius: val;
+*  //------------------------- Positioning
+*    position: absolute;
+*    bottom: 0;
+*  //------------------------- List
+*    property: val;
+*  //------------------------- Table
+*    property: val;
+*  //------------------------- Miscellaneous
+*    property: val;
+*  //------------------------- Effect
+*    property: val;
+* }
+*/
+
+// Imports ---------------------------------------------------------------------
+@import '../../../styles/_palette.scss';
+
+/*******************************************************************************
+* Default |
+*********/
+
+// Variables
+$page-container-witdh: 91%;
+
+.loginPage {
+  height: 100%;
+  width: 100%;
+  background-color: blue;
+  background-image: url("../../../assets/images/50-opacity-pattern-background.png");
+  position: absolute;
+}
+
+
+.login_-_header_--_loginPage {
+  background-color: transparent;
+  text-align: left;
+  height: 14%;
+  width: 100%;
+  padding: 2%;
+
+  h1 {
+    margin: 0;
+    font-family: 'Rubik', sans-serif;
+    color: #212121;
+    //background: rgb(67,160,71);
+    //background: linear-gradient(45deg, rgba(67,160,71,1) 50%, rgba(52,120,123,1) 100%);
+    //-webkit-background-clip: text;
+    //-webkit-text-fill-color: transparent;
+  }
+}
+
+
+
+.login {
+  //position: absolute;
+  //top: 40%;
+  //left: 50%;
+  //transform: translate(-50%, -40%);
+  margin: 0 auto;
+  width: $page-container-witdh;
+  //height: 270px;
+  height: auto;
+  border-radius: 25px;
+  box-shadow: 0 3px 7px 0 rgba(0, 0, 0, 0.47);
+  background-color: #f5f5f5;
+  padding: 3% 6%;
+  //display: block;
+}
+
+.login_-_title {
+  text-align: center;
+}
+
+.login_-_form {
+  text-align: center;
+  //background-color: red;
+  position: relative;
+  //padding: 0;
+  //margin: 0;
+
+  label[for="username"],
+  label[for="password"] {
+    position: absolute;
+    height: 38px;
+    width: 38px;
+    border-radius: 25px;
+    line-height: 2.2rem;
+    background-color: #0091EA;
+    color: #FFF;
+    left: 2%;
+  }
+
+
+  label[for="username"] {
+    //background-color: red;
+    top: 16px;
+  }
+
+  label[for="password"] {
+    //background-color: blue;
+    top: 86px;
+  }
+
+  label[for="remember"] {
+    //float: left;
+    //margin-left: 20px;
+    //font-size: 1.5rem;
+  }
+
+  input[type="text"],
+  input[type="password"] {
+    margin: 10px 0;
+    //width: 90%;
+    width: 100%;
+    height: 50px;
+    border-radius: 25px;
+    border: solid 2.5px #448aff;
+    background-color: #448aff;
+    padding-left: 17%;
+    padding-top: 5px;
+    font-weight: bold;
+    font-size: 1.5rem;
+
+    &::placeholder {
+      color: #9E9E9E;
+    }
+  }
+
+  input[type="text"] {
+    background-color: transparent;
+
+  }
+
+  input[type="password"] {
+    background-color: transparent;
+  }
+
+  input[type="submit"] {
+    float: left;
+    background-color: #388E3C;
+    //margin-top: 20px;
+    //position: absolute;
+    //bottom: -60px;
+    //left: 0;
+    width: 150px;
+    height: 45px;
+    border-radius: 20px;
+    //border: solid 2.5px #ffffff;
+    background-blend-mode: soft-light;
+    color: #FFF;
+    font-size: 1.5rem;
+    //font-weight: medium;
+    //background-image: linear-gradient(to top, rgba(0, 0, 0, 0.6), #000000);
+    box-shadow: 0px 3px 7px 0 rgba(0, 0, 0, 0.25);
+  }
+}
+
+
+.login_-_form_--_remember-forgot {
+  //text-align: left;
+  padding:  1%;
+
+  label {
+    float: left;
+    //padding: 0;
+    //margin: 0;
+    //padding-left: 15px;
+  }
+
+  a {
+    float: right;
+    padding: 0;
+    margin: 0;
+  }
+
+  //label {
+  //  text-align: left;
+  //}
+  //
+  //a {
+  //  text-align: right;
+  //}
+}
+
+.login_-_form_--_buttons {
+  display: inline-block;
+  width: 100%;
+  //background-color: darkblue;
+  text-align: right;
+  padding-top: 3%;
+}
+
+.login_-_form_--_buttons--social-links {
+  display: inline;
+  text-align: right;
+
+  button {
+    width: 45px;
+    height: 45px;
+    //background-color: blue;
+    border-radius: 25px;
+    margin-left: 2.5%;
+    color: white;
+    box-shadow: 0 3px 7px 0 rgba(0, 0, 0, 0.25);
+    font-size: 1.5rem;
+    line-height: 1rem;
+  }
+
+  button:first-child {
+    background-color: #3B5998;
+  }
+
+  button:nth-child(2) {
+    background-color: #DE5246;
+  }
+}
+
+.login_-_breakline {
+  width: $page-container-witdh;
+  //background-color: gray;
+  text-align: center;
+  margin: 2% auto;
+  display: block;
+  position: relative;
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    background-color: black;
+    height: 3px;
+    width: 100px;
+    border-radius: 25px;
+    top: 40%;
+  }
+
+  &::before {
+    left: 10%;
+  }
+
+  &::after {
+    right: 10%;
+  }
+}
+
+.login_-_create-new {
+  //background-color: blue;
+  text-align: center;
+  width: $page-container-witdh;
+  margin: 0 auto;
+
+  button {
+    height: 45px;
+    background: green;
+    border-radius: 8px;
+    //font-weight: bold;
+    color: white;
+    box-shadow: 0 3px 7px 0 rgba(0, 0, 0, 0.35);
+  }
+}
+
+
+
+// Checkbox --------------------------------------------------------------------
+
+/* The container */
+.checkbox-container {
+  display: inline-block;
+  position: relative;
+  //padding: 0;
+  //line-height: ;
+  padding-left: 30px;
+  padding-top: 2px;
+  //margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 1rem;
+  //font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.checkbox-container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: transparent;
+  //background-color: #eee;
+  border: 3px solid #eee;
+  border-radius: 5px;
+}
+
+/* On mouse-over, add a grey background color */
+.checkbox-container:hover input ~ .checkmark {
+  //background-color: #ccc;
+  background-color: #2196F3;
+  //background-color: transparent;
+}
+
+/* When the checkbox is checked, add a blue background */
+.checkbox-container input:checked ~ .checkmark {
+  background-color: #2196F3;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.checkbox-container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.checkbox-container .checkmark:after {
+  left: 7px;
+  top: 3px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+// Animation ----------------------------------------------------------------------
+
+// Active ----------------------------------------------------------------------
+
+// Hover -----------------------------------------------------------------------
+
+// Layouts ---------------------------------------------------------------------
+
+// Media Sizes -----------------------------------------------------------------
+
+
+/*******************************************************************************
+* XS |
+****/
+
+//@media (min-width: $nn) {
+//  .custom-element {
+//    color: var(--primary);
+//  }
+//}
+
+
+
+//@include mq('xs') {
+//
+//}
+
+
+/*******************************************************************************
+* SM |
+****/
+
+//@include mq('sm') {
+//
+//}
+
+
+/*******************************************************************************
+* MD |
+****/
+
+//@include mq('md') {
+//
+//}
+
+
+/*******************************************************************************
+* LG |
+****/
+
+//@include mq('lg') {
+//
+//}
+

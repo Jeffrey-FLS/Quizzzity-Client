@@ -1,10 +1,36 @@
+// React Components
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
 import * as serviceWorker from './serviceWorker';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+import WebFont from 'webfontloader';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+// Assets
+// import './libs/bootstrap-4.4.1-dist/css/bootstrap.min.css';
+import './libs/bootstrap-4.4.1/scss/bootstrap.scss';
+import './styles/index.scss';
+
+// Components
+import App from './app/App';
+
+WebFont.load({
+    google: {
+        families: [
+            // 'Ubuntu:300,400,700',
+            'Ubuntu',
+            'Rubik',
+            'sans-serif'
+        ]
+    }
+});
+
+
+ReactDOM.render(
+    <Router>
+        <Route path="/" component={App} />
+    </Router>,
+    document.getElementById('root')
+);
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

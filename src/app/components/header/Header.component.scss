@@ -1,0 +1,175 @@
+/**
+* Example of property order and category naming convention for comment
+********************************************************************************
+* .class {
+*  //------------------------- Font & Text
+*    text-align: val;
+*    text-shadow: val;
+*  //------------------------- Color & Background
+*    background-color: val;
+*    color: val;
+*    opacity: val;
+*  //------------------------- Box
+*    height: val;
+*    width: val;
+*    border-radius: val;
+*  //------------------------- Positioning
+*    position: absolute;
+*    bottom: 0;
+*  //------------------------- List
+*    property: val;
+*  //------------------------- Table
+*    property: val;
+*  //------------------------- Miscellaneous
+*    property: val;
+*  //------------------------- Effect
+*    property: val;
+* }
+*/
+
+// Imports ---------------------------------------------------------------------
+@import '../../../styles/_palette.scss';
+
+
+/*******************************************************************************
+* Default |
+*********/
+
+.header {
+  // variables
+  //$header-padding: 8px;
+
+  width: 100%;
+  height: 60px;
+  box-shadow: 0 3px 7px 0 rgba(0, 0, 0, 0.47);
+  background-color: $palette-white;
+  padding-top: 8px;
+  text-align: center;
+}
+
+.header_-_logo {
+  text-align: left;
+  //background-color: gray;
+  font-family: 'Rubik', sans-serif;
+  color: $palette-blue;
+  padding-left: 10px;
+}
+
+.header_-_search-box {
+  //background-color: red;
+  padding: 0;
+
+  input[type=text] {
+    width: 100%;
+    height: 45px;
+    border-radius: 25px;
+    box-shadow: inset 0px 3px 7px 0 rgba(0, 0, 0, 0.13);
+    background-color: #f5f5f5;
+    padding-left: 15px;
+    font-size: 1.5rem;
+  }
+
+  button {
+    position: absolute;
+    top: 2px;
+    right: 3px;
+    width: 41px;
+    height: 41px;
+    border-radius: 25px;
+    box-shadow: 0px 0px 5px 0 rgba(0, 0, 0, 0.47);
+    background-color: $palette-blue;
+    color: $palette-white;
+    line-height: 0;
+  }
+}
+
+.header_-_nav-links {
+  color: $palette-black;
+}
+
+.header_-_nav-link_--_notifications,
+.header_-_nav-link_--_user {
+  font-size: 2rem;
+  line-height: 2.5rem;
+}
+
+.header_-_nav-link_--_notifications {
+  //background-color: orange;
+}
+
+.header_-_nav-link_--_user {
+  //background-color: green;
+}
+
+.header_-_nav-links_--_menu {
+  //font-size: 3rem;
+  //background-color: blue;
+}
+
+.header_-_nav-links_--_menu--hamburger {
+  padding-top: 1rem;
+  line-height: 0;
+
+  // Overriding Hamburger mid bar to push right 50%
+  span::before {
+    right: -50%;
+  }
+
+  span:active::before {
+    //right: 1%;
+    //right: 0;
+    //transform: rotate(-45deg) translate3d(-4.285714285714286px,-4.5px,0);
+    //opacity: 0;
+  }
+}
+
+
+
+
+
+// Animation ----------------------------------------------------------------------
+
+// Active ----------------------------------------------------------------------
+
+// Hover -----------------------------------------------------------------------
+
+// Layouts ---------------------------------------------------------------------
+
+// Media Sizes -----------------------------------------------------------------
+
+
+/*******************************************************************************
+* XS |
+****/
+
+//@include mq('xs') {
+//
+//}
+
+
+/*******************************************************************************
+* SM |
+****/
+
+//@include mq('sm') {
+//
+//}
+
+
+/*******************************************************************************
+* MD |
+****/
+
+//@include mq('md') {
+//
+//}
+
+
+/*******************************************************************************
+* LG |
+****/
+
+//@include mq('lg') {
+//
+//}
+
