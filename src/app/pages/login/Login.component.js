@@ -18,9 +18,10 @@ class LoginPage extends Component {
             <div className="loginPage">
                 <header className="login_-_header_--_loginPage"><h1>Quizzzity</h1></header>
 
-                {/*<div className="container"></div>*/}
-                <div className="login">
+                <div className="container">
                     <div className="row">
+
+                    <div className="login col-12 col-sm-8 col-md-6 col-lg-5">
                     <div className="login_-_body">
                         <div className="login_-_title">
                             <h1>Login</h1>
@@ -67,7 +68,7 @@ class LoginPage extends Component {
                     <button>Create New Account</button>
                 </div>
 
-
+                </div>
             </div>
         )
     }

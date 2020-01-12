@@ -29,6 +29,9 @@
 
 // Imports ---------------------------------------------------------------------
 @import '../../../styles/_palette.scss';
+@import "src/libs/bootstrap-4.4.1/scss/_functions.scss";
+//@import "src/libs/bootstrap-4.4.1/scss/mixins/_breakpoints.scss";
+@import "src/libs/bootstrap-4.4.1/scss/_variables.scss";
 
 /*******************************************************************************
 * Default |
@@ -244,17 +247,17 @@ $page-container-witdh: 91%;
     position: absolute;
     background-color: black;
     height: 3px;
-    width: 100px;
+    width: 25%;
     border-radius: 25px;
-    top: 40%;
+    top: 45%;
   }
 
   &::before {
-    left: 10%;
+    left: 18%;
   }
 
   &::after {
-    right: 10%;
+    right: 18%;
   }
 }
 
@@ -369,6 +372,13 @@ $page-container-witdh: 91%;
 /*******************************************************************************
 * XS |
 ****/
+
+@media only screen and (min-width: map-get($grid-breakpoints, xl)){
+  // Styles
+  .login {
+    background-color: yellow;
+  }
+}
 
 //@media (min-width: $nn) {
 //  .custom-element {
