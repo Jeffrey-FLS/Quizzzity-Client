@@ -1,19 +1,29 @@
+// React Components
 import React, {Component} from 'react';
+import { connect } from 'react-redux';
 
-import './Login.component.scss';
-
+// Assets
+import './LoginPage.component.scss';
 import {FaUserAlt} from 'react-icons/fa';
 import {FaLock} from 'react-icons/fa';
 import {FaFacebookF} from 'react-icons/fa';
 import {FaGoogle} from 'react-icons/fa';
 
-class LoginPage extends Component {
+// Components
+
+// Redux Actions
+import { addLike, removeLike, changeText } from "../../../redux/actions";
+
+class   LoginPage extends Component {
 
     fetchUser = (username, password) => {
         // fetch('http://localhost:3000/api/v1/users')
     };
 
+
     render() {
+        // this.props.dispatch(addLike());
+
         return (
             <div className="loginPage">
                 <header className="login_-_header_--_loginPage"><h1>Quizzzity</h1></header>
@@ -51,8 +61,9 @@ class LoginPage extends Component {
                                 <input type="submit" value="Sign-In"/>
 
                                 <div className="login_-_form_--_buttons--social-links">
-                                    <button><FaFacebookF/></button>
-                                    <button><FaGoogle/></button>
+                                    <button onClick={this.props.addLike}><FaFacebookF/></button>
+                                    <h1>{this.props.likes}</h1>
+                                    <button onClick={this.props.removeLike}><FaGoogle/></button>
                                 </div>
                             </div>
                         </form>
@@ -68,10 +79,33 @@ class LoginPage extends Component {
                     <button>Create New Account</button>
                 </div>
 
+                    <input name="text" value={this.props.text} onChange={this.props.changeText}/>
+                    <h1>{this.props.text}</h1>
+
                 </div>
             </div>
         )
     }
 }
 
-export default LoginPage;
+
+function msp(state){
+    return {
+        likes: state.testReducer.likes,
+        text: state.testReducer.text
+    }
+}
+
+const mdp = {
+    addLike,
+    removeLike,
+    changeText
+};
+
+// const connectedLoginPage = connect(msp, mdp)(LoginPage);
+// export { connectedLoginPage as LoginPage };
+
+export default connect(msp, mdp)(LoginPage);
+// export default connect(state => state.testReducer)(LoginPage);
+
+// export default LoginPage;

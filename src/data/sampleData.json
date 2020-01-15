@@ -1,0 +1,104 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "first_name": "Tashia",
+      "last_name": "Herzog",
+      "email": "angel_okeefe@tillmancronin.co",
+      "username": "Hong Crona",
+      "password": "123",
+      "created_at": "2020-01-09T18:52:40.617Z",
+      "updated_at": "2020-01-09T18:52:40.617Z"
+    },
+    {
+      "id": 2,
+      "first_name": "Virgil",
+      "last_name": "Wuckert",
+      "email": "carroll@dare.biz",
+      "username": "Domenic Rau",
+      "password": "123",
+      "created_at": "2020-01-09T18:52:40.628Z",
+      "updated_at": "2020-01-09T18:52:40.628Z"
+    },
+    {
+      "id": 3,
+      "first_name": "Ward",
+      "last_name": "Jakubowski",
+      "email": "jeanett_oberbrunner@brownmitchell.net",
+      "username": "Ms. Brenton Zieme",
+      "password": "123",
+      "created_at": "2020-01-09T18:52:40.639Z",
+      "updated_at": "2020-01-09T18:52:40.639Z"
+    },
+    {
+      "id": 4,
+      "first_name": "Claribel",
+      "last_name": "Weber",
+      "email": "christa@koelpinlemke.biz",
+      "username": "Angila Renner PhD",
+      "password": "123",
+      "created_at": "2020-01-09T18:52:40.651Z",
+      "updated_at": "2020-01-09T18:52:40.651Z"
+    },
+    {
+      "id": 5,
+      "first_name": "Maris",
+      "last_name": "Pollich",
+      "email": "merlin.runolfsdottir@rowegaylord.info",
+      "username": "Aisha Dooley",
+      "password": "123",
+      "created_at": "2020-01-09T18:52:40.662Z",
+      "updated_at": "2020-01-09T18:52:40.662Z"
+    },
+    {
+      "id": 6,
+      "first_name": "Corrinne",
+      "last_name": "Mitchell",
+      "email": "petra@jakubowski.co",
+      "username": "Miss Lenny Glover",
+      "password": "123",
+      "created_at": "2020-01-09T18:52:40.674Z",
+      "updated_at": "2020-01-09T18:52:40.674Z"
+    },
+    {
+      "id": 7,
+      "first_name": "Genaro",
+      "last_name": "Hand",
+      "email": "bradford@sporer.org",
+      "username": "Ms. Dorian Murphy",
+      "password": "123",
+      "created_at": "2020-01-09T18:52:40.687Z",
+      "updated_at": "2020-01-09T18:52:40.687Z"
+    },
+    {
+      "id": 8,
+      "first_name": "Marcela",
+      "last_name": "Raynor",
+      "email": "ocie@bernier.co",
+      "username": "Bryce Ledner",
+      "password": "123",
+      "created_at": "2020-01-09T18:52:40.698Z",
+      "updated_at": "2020-01-09T18:52:40.698Z"
+    },
+    {
+      "id": 9,
+      "first_name": "Hyun",
+      "last_name": "Lang",
+      "email": "darlena_welch@hansenbernhard.org",
+      "username": "Ozzie Schamberger MD",
+      "password": "123",
+      "created_at": "2020-01-09T18:52:40.709Z",
+      "updated_at": "2020-01-09T18:52:40.709Z"
+    },
+    {
+      "id": 10,
+      "first_name": "Kiesha",
+      "last_name": "Tillman",
+      "email": "olinda.pouros@swift.org",
+      "username": "Miss Un Daugherty",
+      "password": "123",
+      "created_at": "2020-01-09T18:52:40.721Z",
+      "updated_at": "2020-01-09T18:52:40.721Z"
+    }
+  ]
+}

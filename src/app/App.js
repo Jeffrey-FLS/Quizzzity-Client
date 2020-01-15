@@ -8,7 +8,9 @@ import './App.scss';
 // App Components
 // import UserMenuPage from "./pages/userMenu/UserMenuPage.component";
 import Header from "./components/header/Header.component";
-import LoginPage from "./pages/login/Login.component";
+import LoginPage from "./pages/login/LoginPage.component";
+import UserHomePage from "./pages/userHome/UserHomePage.component";
+// import store from "../redux/store";
 
 class App extends Component {
 
@@ -30,12 +32,15 @@ class App extends Component {
 
 
   render() {
-    return (
+      // console.log(this.props.store);
+
+      return (
         <div className="App">
           {(this.state.boolShowLoginPage) && <Header/>}
 
           <Switch>
             {/*<Route path="/userMain" render={(routerProps) => <UserMenuPage quizzes={this.state.quizzes} {...routerProps}/>}/>*/}
+            <Route path="/userHome" component={UserHomePage}/>
             <Route path="/" component={LoginPage}/>
           </Switch>
         </div>
