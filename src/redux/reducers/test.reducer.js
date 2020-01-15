@@ -6,7 +6,7 @@ const defaultState = {
     text: ""
 };
 
-export function testReducer(prevState = defaultState, action){
+function testReducer(prevState = defaultState, action){
     switch(action.type){
         case C.LIKE:
             return {...prevState, likes: prevState.likes + 1};
@@ -18,3 +18,5 @@ export function testReducer(prevState = defaultState, action){
             return prevState
     }
 }
+
+export default testReducer;

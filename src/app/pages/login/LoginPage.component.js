@@ -89,12 +89,12 @@ class   LoginPage extends Component {
 }
 
 
-function msp(state){
-    return {
-        likes: state.testReducer.likes,
-        text: state.testReducer.text
-    }
-}
+// function msp(state){
+//     return {
+//         likes: state.tests.likes,
+//         text: state.tests.text
+//     }
+// }
 
 const mdp = {
     addLike,
@@ -105,7 +105,7 @@ const mdp = {
 // const connectedLoginPage = connect(msp, mdp)(LoginPage);
 // export { connectedLoginPage as LoginPage };
 
-export default connect(msp, mdp)(LoginPage);
+export default connect(state => state.tests, mdp)(LoginPage);
 // export default connect(state => state.testReducer)(LoginPage);
 
 // export default LoginPage;

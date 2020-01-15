@@ -10,6 +10,7 @@ import './App.scss';
 import Header from "./components/header/Header.component";
 import LoginPage from "./pages/login/LoginPage.component";
 import UserHomePage from "./pages/userHome/UserHomePage.component";
+import TestPage from "./pages/test/TestPage.component";
 // import store from "../redux/store";
 
 class App extends Component {
@@ -41,7 +42,8 @@ class App extends Component {
           <Switch>
             {/*<Route path="/userMain" render={(routerProps) => <UserMenuPage quizzes={this.state.quizzes} {...routerProps}/>}/>*/}
             <Route path="/userHome" component={UserHomePage}/>
-            <Route path="/" component={LoginPage}/>
+            <Route path="/LoginPage" component={LoginPage}/>
+            <Route path="/" component={TestPage}/>
           </Switch>
         </div>
     );
