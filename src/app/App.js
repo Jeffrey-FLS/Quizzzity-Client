@@ -41,8 +41,8 @@ class App extends Component {
 
           <Switch>
             {/*<Route path="/userMain" render={(routerProps) => <UserMenuPage quizzes={this.state.quizzes} {...routerProps}/>}/>*/}
-            <Route path="/userHome" component={UserHomePage}/>
-            <Route path="/LoginPage" component={LoginPage}/>
+            <Route path="/user_home" component={UserHomePage}/>
+            <Route path="/login" component={LoginPage}/>
             <Route path="/" component={TestPage}/>
           </Switch>
         </div>
