@@ -46,10 +46,9 @@ class TestPage extends Component {
                     {/*{renderThangs()}*/}
                     <Child />
 
-                    {(this.props.users.length !== 0)
+                    {(this.props.users !== undefined)
                         ? this.props.users.map(user => <h4>{user.first_name}</h4>)
                         : ''}
-
                 </div>
             </div>
         )

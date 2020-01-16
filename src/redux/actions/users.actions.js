@@ -1,27 +1,35 @@
 
 import { usersConstants as C } from "../constants";
-import axios from 'axios'
-import { API } from '../helpers';
+import { userService } from "../services/";
 
 export const userActions = {
+    fetchUsers
     // login,
     // logout,
-    fetchUsers
-    // getAll,
-    // delete: _delete
 };
-
 
 
 function fetchUsers() {
     return (dispatch) => {
         dispatch(fetchUsersRequest());
 
-        axios.get(`${API.URL}users`)
-            .then(data => dispatch(fetchUsersSuccess(data.data)))
-            .catch(error => dispatch(fetchUsersFailure(error.message)));
+        userService.fetchUsers()
+            .then(
+                users => dispatch(fetchUsersSuccess(users)),
+                error => dispatch(fetchUsersFailure(error.toString()))
+                );
     }
 }
+
+// function fetchUsers() {
+//     return (dispatch) => {
+//         dispatch(fetchUsersRequest());
+//
+//         axios.get(`${API.URL}users`)
+//             .then(data => dispatch(fetchUsersSuccess(data.data)))
+//             .catch(error => dispatch(fetchUsersFailure(error.message)));
+//     }
+// }
 
 const fetchUsersRequest = () => {
     return {
