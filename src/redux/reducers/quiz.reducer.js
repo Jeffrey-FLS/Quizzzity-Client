@@ -1,33 +1,47 @@
 
-import { usersConstants as C } from "../constants/";
+import { quizConstants as C } from "../constants/";
 
 const initialState = {
     loading: false,
-    users: [],
+    quizzes: [],
     error: ''
 };
 
-const usersReducer = (state = initialState, action) => {
+const quizReducer = (state = initialState, action) => {
     switch (action.type) {
-        case C.FETCH_USERS_REQUEST:
+
+        // Fetch Users
+        case C.FETCH_QUIZZES_REQUEST:
             return {
                 ...state,
                 loading: true
             };
-        case C.FETCH_USERS_SUCCESS:
+        case C.FETCH_QUIZZES_SUCCESS:
             return {
                 loading: false,
-                users: action.payload,
+                quizzes: action.payload,
                 error: ''
             };
-        case C.FETCH_USERS_FAILURE:
+        case C.FETCH_QUIZZES_FAILURE:
             return {
                 loading: false,
-                users: [],
+                quizzes: [],
                 error: action.payload
             };
+
+
+
+        //FIXME: Reducers are not finished
+
+
+
+
+
+
+
+
         default: return state
     }
 };
 
-export default usersReducer;
+export default quizReducer;

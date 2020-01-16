@@ -1,0 +1,211 @@
+/**
+* Example of property order and category naming convention for comment
+********************************************************************************
+* .class {
+*  //------------------------- Font & Text
+*    text-align: val;
+*    text-shadow: val;
+*  //------------------------- Color & Background
+*    background-color: val;
+*    color: val;
+*    opacity: val;
+*  //------------------------- Box
+*    height: val;
+*    width: val;
+*    border-radius: val;
+*  //------------------------- Positioning
+*    position: absolute;
+*    bottom: 0;
+*  //------------------------- List
+*    property: val;
+*  //------------------------- Table
+*    property: val;
+*  //------------------------- Miscellaneous
+*    property: val;
+*  //------------------------- Effect
+*    property: val;
+* }
+*/
+
+// Imports ---------------------------------------------------------------------
+@import '../../../../../styles/_palette.scss';
+
+/*******************************************************************************
+* Default |
+*********/
+
+// global variables
+$border-radius: 20px;
+
+
+.card-uniq {
+  height: 350px;
+  //background-color: $palette-blue;
+  //max-height: 350px;
+  //margin:20px 0;
+}
+
+.card_-_body {
+  background-color: $palette-white;
+  border-radius: $border-radius;
+  width: 255px;
+  height: 300px;
+  box-shadow: 0px 5px 7px 0 rgba(0, 0, 0, 0.47);
+  display: block;
+  position:absolute;
+  top: 6%;
+}
+
+.card_-_img {
+  height: inherit;
+  width: inherit;
+  overflow: hidden;
+  border-top-left-radius: $border-radius;
+  border-top-right-radius: $border-radius;
+  //background-color: lightcoral;
+
+  img  {
+    margin-top: -10px;
+    width: inherit;
+   height: 180px;
+   object-fit: cover;
+   //background-color: lightblue;
+ }
+}
+
+
+.card_-_details {
+  height: 150px;
+  width: 255px;
+  background-color: $palette-white;
+  position: absolute;
+  bottom: 0;
+  border-bottom-left-radius: inherit;
+  border-bottom-right-radius: inherit;
+  border-top-right-radius: inherit;
+  padding: 8px;
+  padding-bottom: 0px;
+  border-top: 1px solid #EEE;
+  //color: #EEE
+  box-shadow: 0px -3px 5px 0 rgba(0, 0, 0, 0.03);
+}
+
+.card_-_details_--_title {
+  //background-color: red;
+  width: 195px;
+}
+
+.card_-_details_--_menu-btn {
+  position: absolute;
+  //background-color: green;
+  right: 5px;
+  top: 5px;
+
+  button {
+    $btn-size: 40px;
+    height: $btn-size;
+    width: $btn-size;
+    border-radius: 25px;
+    background-color: $palette-blue;
+    color: $palette-white;
+    font-weight: bold;
+    font-size: 1.5rem;
+  }
+}
+
+
+.card_-_details_--_duration {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  padding: inherit;
+}
+
+.card_-_details_--_difficulty {
+  position: absolute;
+  right: 5px;
+  bottom: 0;
+  padding: inherit;
+//display: inline;
+
+  img {
+    //width: 100%;
+    //display: inline;
+    //background-color: blue;
+    height: 20px;
+    margin-bottom: 10px;
+  }
+
+  h6 {
+    line-height: 1rem;
+    display: inline;
+  }
+}
+
+// Animation ----------------------------------------------------------------------
+.card_-_body,
+.card_-_details,
+.card_-_details_--_menu-btn button {
+  transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
+}
+
+// Active ----------------------------------------------------------------------
+
+// Hover -----------------------------------------------------------------------
+.card_-_body:hover {
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  height: 330px;
+  top: 0;
+
+  .card_-_details {
+    height: 180px;
+  }
+
+  //box-shadow: 0 3px 16px 0 rgba(0, 0, 0, 0.2);
+  //cursor: pointer;
+  //border-radius: 5px;
+}
+
+.card_-_details_--_menu-btn button:hover {
+  box-shadow: 0px 2px 5px 0 rgba(0, 0, 0, 0.35);
+}
+// Layouts ---------------------------------------------------------------------
+
+// Media Sizes -----------------------------------------------------------------
+
+
+/*******************************************************************************
+* XS |
+****/
+
+//@include mq('xs') {
+//
+//}
+
+
+/*******************************************************************************
+* SM |
+****/
+
+//@include mq('sm') {
+//
+//}
+
+
+/*******************************************************************************
+* MD |
+****/
+
+//@include mq('md') {
+//
+//}
+
+
+/*******************************************************************************
+* LG |
+****/
+
+//@include mq('lg') {
+//
+//}
+

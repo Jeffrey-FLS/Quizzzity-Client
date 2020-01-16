@@ -1,0 +1,125 @@
+/**
+* Example of property order and category naming convention for comment
+********************************************************************************
+* .class {
+*  //------------------------- Font & Text
+*    text-align: val;
+*    text-shadow: val;
+*  //------------------------- Color & Background
+*    background-color: val;
+*    color: val;
+*    opacity: val;
+*  //------------------------- Box
+*    height: val;
+*    width: val;
+*    border-radius: val;
+*  //------------------------- Positioning
+*    position: absolute;
+*    bottom: 0;
+*  //------------------------- List
+*    property: val;
+*  //------------------------- Table
+*    property: val;
+*  //------------------------- Miscellaneous
+*    property: val;
+*  //------------------------- Effect
+*    property: val;
+* }
+*/
+
+// Imports ---------------------------------------------------------------------
+@import '../../../styles/_palette.scss';
+
+/*******************************************************************************
+* Default |
+*********/
+
+body {
+  background-color: $palette-shady-white;
+}
+
+.user-menu {
+  padding-top: 2rem;
+  //background-color: green;
+  color: $palette-black;
+
+  h2 {
+    margin-bottom: 1rem;
+  }
+}
+
+.user-menu_-_filter {
+  display: inline;
+  text-align: center;
+  //background-color: blue;
+  border: 2px solid $palette-black;
+  border-radius: 25px;
+  padding-top: 0.3rem;
+  margin-top: 8px;
+  height: 40px;
+  //margin: 0;
+
+  h5 {
+    display: inline-block;
+    margin: 0 4px;
+  }
+
+  //h5:nth-child(-n+2) {
+  //  margin-right: 5px;
+  //}
+}
+
+//.card {
+//  height: 300px;
+//  background-color: $palette-blue;
+//}
+
+
+
+
+// Animation ----------------------------------------------------------------------
+
+// Active ----------------------------------------------------------------------
+
+// Hover -----------------------------------------------------------------------
+
+// Layouts ---------------------------------------------------------------------
+
+// Media Sizes -----------------------------------------------------------------
+
+
+/*******************************************************************************
+* XS |
+****/
+
+//@include mq('xs') {
+//
+//}
+
+
+/*******************************************************************************
+* SM |
+****/
+
+//@include mq('sm') {
+//
+//}
+
+
+/*******************************************************************************
+* MD |
+****/
+
+//@include mq('md') {
+//
+//}
+
+
+/*******************************************************************************
+* LG |
+****/
+
+//@include mq('lg') {
+//
+//}
+
