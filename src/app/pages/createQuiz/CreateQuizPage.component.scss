@@ -1,0 +1,112 @@
+
+
+
+
+.create-quiz {
+  padding-top: 3%;
+}
+
+.create-quiz_-_nav {
+  //background-color: blue;
+  padding: 0;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 100px;
+    left: 42px;
+    width: 11px;
+    height: 400px;
+    //background-color: #eeeeee;
+    background-color: #E0E0E0;
+    z-index: -1;
+    opacity: 0.5;
+  }
+}
+
+.create-quiz_-_nav_--_step-1,
+.create-quiz_-_nav_--_step-2,
+.create-quiz_-_nav_--_step-3 {
+  background-color: gray;
+  height: 95px;
+  width: 95px;
+  //padding: 0;
+  //margin: 0;
+  border-radius: 100px;
+  margin: 75px 0;
+  box-shadow: inset 0 3px 7px 0 rgba(0, 0, 0, 0.13);
+  background-color: #ffffff;
+  text-align: center;
+  padding-top: 2.1rem;
+}
+
+.create-quiz_-_forms {
+  //width: 540px;
+  height: 540px;
+  border-radius: 25px;
+  box-shadow: 0 3px 7px 0 rgba(0, 0, 0, 0.30);
+  background-color: #ffffff;
+  text-align: center;
+  padding: 12px 30px;
+}
+
+.create-quiz_-_forms form {
+  padding-top: 20px;
+  //background-color: gray;
+  //position: relative;
+
+  input[type=text],
+  select {
+    width: 100%;
+    height: 45px;
+    border-radius: 22.5px;
+    border: solid 3px #eeeeee;
+    background-color: #fff;
+    margin: 15px 0;
+  }
+
+
+  input[type=text] {
+    padding: 15px;
+
+    &::placeholder {
+      color: #9E9E9E;
+    }
+  }
+
+  select {
+    padding-left: 10px;
+    //position: relative;
+  }
+}
+
+.create-quiz_-_forms_--_select {
+  //background-color: blue;
+  position: relative;
+
+  &::after {
+    content:' \2038';
+    background-color: #eee;
+    height: 37px;
+    width: 37px;
+    position: absolute;
+    top: 19px;
+    right: 6px;
+    border-radius: 25px;
+    transform: rotate(180deg);
+    font-size: 2.3rem;
+    line-height: 0;
+    color: #212121;
+  }
+}
+
+.create-quiz_-_view {
+  background-color: gray;
+}
+
+
+// Special Classes -------------------------------------------------------------
+.active {
+  background-color: #0991ea;
+  color: white;
+}

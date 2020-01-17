@@ -1,15 +1,17 @@
 // React Components
 import React, {Component} from 'react';
-
-// Libs Components
-import {FaSearch} from 'react-icons/fa';
-import {FaRegUserCircle} from 'react-icons/fa';
-import {FaBell} from 'react-icons/fa';
-import {HamburgerSlider} from 'react-animated-burgers'
+import { Link } from 'react-router-dom';
 
 // Assets
-import './Header.component.scss';
+import {
+    FaSearch,
+    FaPlusCircle,
+    FaRegUserCircle,
+    FaBell
+} from 'react-icons/fa';
 
+import {HamburgerSlider} from 'react-animated-burgers'
+import './Header.component.scss';
 
 class Header extends Component {
 
@@ -28,34 +30,42 @@ class Header extends Component {
             <header className="header container-fluid">
                 <div className="row">
                     <div className="header_-_logo col-1">
-                        <h2>Qwix</h2>
+                        <Link to="/"><h2>Qwix</h2></Link>
+                    </div>
+                    <div className="header_-_create-quiz offset-1 col-2">
+                        <Link to="/create-quiz">
+                            <h3>
+                                <FaPlusCircle className="header_-_create-quiz-icon"/> Create New Quiz
+                            </h3>
+                        </Link>
                     </div>
 
-                    <div className="header_-_search-box offset-4 col-3">
+                    <div className="header_-_search-box offset-1 col-3">
                         <input type="text" placeholder="Search"/>
                         <button><FaSearch/></button>
                     </div>
 
                     <div className="header_-_nav-links offset-2 col-2">
-                        <div className="row">
+                        {/*<div className="row">*/}
 
 
-                            <div className="header_-_nav-link_--_notifications col-4">
+                            <div className="header_-_nav-link_--_notifications">
                                 <FaBell />
                             </div>
 
-                            <div className="header_-_nav-link_--_user col-4">
+                            <div className="header_-_nav-link_--_user">
                                 <FaRegUserCircle />
                             </div>
 
-                            <div className="header_-_nav-links_--_menu col-4">
-                                <HamburgerSlider className="header_-_nav-links_--_menu--hamburger" isActive={this.state.isActive}
+                            <div className="header_-_nav-links_--_menu">
+                                <HamburgerSlider className="header_-_nav-links_--_menu--hamburger"
+                                                 isActive={this.state.isActive}
                                                  toggleButton={this.toggleButton}
-                                                 barColor="#212121"
+                                                 barColor="#fff"
                                                  buttonWidth={30}
                                 />
                             </div>
-                        </div>
+                        {/*</div>*/}
                     </div>
                 </div>
             </header>

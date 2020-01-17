@@ -11,12 +11,13 @@ import Header from "./components/header/Header.component";
 import LoginPage from "./pages/login/LoginPage.component";
 import UserHomePage from "./pages/userHome/UserHomePage.component";
 import TestPage from "./pages/test/TestPage.component";
+import CreateQuizPage from "./pages/createQuiz/CreateQuizPage.component";
 // import store from "../redux/store";
 
 class App extends Component {
 
   state = {
-    boolShowLoginPage: false,
+    boolShowLoginPage: true,
     arrQuizzes: []
   };
 
@@ -41,9 +42,10 @@ class App extends Component {
 
           <Switch>
             {/*<Route path="/userMain" render={(routerProps) => <UserMenuPage quizzes={this.state.quizzes} {...routerProps}/>}/>*/}
-            <Route path="/user_home" component={UserHomePage}/>
-            <Route path="/" component={LoginPage}/>
-            {/*<Route path="/" component={TestPage}/>*/}
+            <Route path="/login" component={LoginPage}/>
+            <Route path="/create-quiz" component={CreateQuizPage}/>
+            <Route path="/" component={UserHomePage}/>
+              {/*<Route path="/" component={TestPage}/>*/}
           </Switch>
         </div>
     );
