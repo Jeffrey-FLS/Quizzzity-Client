@@ -21,16 +21,16 @@ class App extends Component {
     arrQuizzes: []
   };
 
-  componentDidMount() {
-    fetch('http://localhost:3000/api/v1/quizzes')
-        .then(response => response.json())
-        .then(data => {
-          // debugger
-          this.setState({
-            quizzes: data
-          });
-        }).catch(console.error);
-  }
+  // componentDidMount() {
+  //   fetch('http://localhost:3000/api/v1/quizzes')
+  //       .then(response => response.json())
+  //       .then(data => {
+  //         // debugger
+  //         this.setState({
+  //           quizzes: data
+  //         });
+  //       }).catch(console.error);
+  // }
 
 
   render() {
@@ -44,8 +44,8 @@ class App extends Component {
             {/*<Route path="/userMain" render={(routerProps) => <UserMenuPage quizzes={this.state.quizzes} {...routerProps}/>}/>*/}
             <Route path="/login" component={LoginPage}/>
             <Route path="/create-quiz" component={CreateQuizPage}/>
+            <Route path="/test" component={TestPage}/>
             <Route path="/" component={UserHomePage}/>
-              {/*<Route path="/" component={TestPage}/>*/}
           </Switch>
         </div>
     );

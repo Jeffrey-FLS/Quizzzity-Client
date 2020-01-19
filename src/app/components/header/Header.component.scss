@@ -65,9 +65,15 @@
 
 .header_-_create-quiz {
   //background-color: gray;
+  margin-top: 0.2%;
   color: $palette-white;
-  padding-top: 0.5rem;
+  padding-top: 0.3rem;
   cursor: pointer;
+  //background-color: yellow;
+  border-radius: 15px;
+  line-height: 0;
+  height: 40px;
+  //margin: 0;
 }
 
 .header_-_create-quiz-icon {
@@ -161,10 +167,50 @@
 
 
 // Animation ----------------------------------------------------------------------
+.header_-_create-quiz,
+.header_-_create-quiz:hover {
+  transition: all 0.1s ease-in-out;
+}
+
+
+.header_-_nav-links_--_menu--hamburger,
+.header_-_nav-links_--_menu--hamburger:hover {
+  // Overriding Hamburger mid bar to push right 50%
+  span::before {
+    transition: all 0.1s ease-in-out;
+  }
+}
 
 // Active ----------------------------------------------------------------------
 
 // Hover -----------------------------------------------------------------------
+
+.header_-_create-quiz:hover {
+  color: inherit;
+  background-color: white;
+
+  h3 {
+    color: #0070EB;
+    //-webkit-background-clip: text;
+    //-webkit-text-fill-color: transparent;
+  }
+
+  .header_-_create-quiz-icon {
+    color: #0070EB;
+  }
+
+  //&::after {
+  //  content: '';
+  //  background-color: blue;
+  //}
+}
+
+.header_-_nav-links_--_menu--hamburger:hover {
+  // Overriding Hamburger mid bar to push right 50%
+  span::before {
+    right: 0;
+  }
+}
 
 // Layouts ---------------------------------------------------------------------
 

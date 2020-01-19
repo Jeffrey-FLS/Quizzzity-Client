@@ -30,7 +30,8 @@ class Header extends Component {
             <header className="header container-fluid">
                 <div className="row">
                     <div className="header_-_logo col-1">
-                        <Link to="/"><h2>Qwix</h2></Link>
+                        {/*<Link to="/"><h2>Qwix</h2></Link>*/}
+                        <Link to="/"><h2>Quizzzity</h2></Link>
                     </div>
                     <div className="header_-_create-quiz offset-1 col-2">
                         <Link to="/create-quiz">

@@ -13,7 +13,7 @@
   &::before {
     content: '';
     position: absolute;
-    top: 100px;
+    top: 90px;
     left: 42px;
     width: 11px;
     height: 400px;
@@ -21,28 +21,45 @@
     background-color: #E0E0E0;
     z-index: -1;
     opacity: 0.5;
+    //box-shadow: inset 0 3px 7px 0 rgba(0, 0, 0, 0.13);
   }
 }
 
 .create-quiz_-_nav_--_step-1,
 .create-quiz_-_nav_--_step-2,
 .create-quiz_-_nav_--_step-3 {
+  position: absolute;
   background-color: gray;
   height: 95px;
   width: 95px;
-  //padding: 0;
-  //margin: 0;
   border-radius: 100px;
-  margin: 75px 0;
+  //margin: 75px 0;
   box-shadow: inset 0 3px 7px 0 rgba(0, 0, 0, 0.13);
   background-color: #ffffff;
   text-align: center;
   padding-top: 2.1rem;
 }
 
+.create-quiz_-_nav_--_step-1 {
+  //margin-top: 0;
+  top: 0;
+}
+
+.create-quiz_-_nav_--_step-2 {
+  //margin-bottom: 0 !important;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.create-quiz_-_nav_--_step-3 {
+  //margin-bottom: 0 !important;
+  bottom: 0;
+}
+
+
 .create-quiz_-_forms {
-  //width: 540px;
-  height: 540px;
+  //height: 540px;
+  height: 650px;
   border-radius: 25px;
   box-shadow: 0 3px 7px 0 rgba(0, 0, 0, 0.30);
   background-color: #ffffff;
@@ -53,7 +70,6 @@
 .create-quiz_-_forms form {
   padding-top: 20px;
   //background-color: gray;
-  //position: relative;
 
   input[type=text],
   select {
@@ -100,10 +116,81 @@
   }
 }
 
-.create-quiz_-_view {
-  background-color: gray;
+.create-quiz_-_forms_--_input-file {
+  //background-color: blue;
+  border-radius: 15px;
+  height: 280px;
+  text-align: left;
+  padding: 10px;
+  border: solid 3px #eeeeee;
+  //background-color: #fff;
+  position: relative;
+
+
+  //input[type=file] {
+  //  position: absolute;
+  //  text-align: center;
+  //  background-color: brown;
+  //}
 }
 
+.create-quiz_-_forms_--_input-file-btn {
+  overflow: hidden;
+  //position: relative;
+  display: inline-block;
+  //height: 100px;
+  //width: 100px;
+  //background-color: green;
+  text-align: center;
+  position: absolute;
+  //margin: 0 auto;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  color: #BDBDBD;
+
+
+  input[type=file] {
+    //background-color: brown;
+    position: absolute;
+    margin: 0 auto;
+    top: 0;
+    left: 0;
+    right: 0;
+    opacity: 0;
+    font-size: 100px;
+  }
+
+  // Setting the cursor pointer
+  input[type=file], /* FF, IE7+, chrome (except button) */
+  input[type=file]::-webkit-file-upload-button { /* chromes and blink button */
+    cursor: pointer;
+  }
+}
+
+.create-quiz_-_forms_--_input-file-btn_icon {
+  color: #BDBDBD;
+  //background-color: yellow;
+  font-size: 6rem;
+}
+
+.create-quiz_-_view {
+  //background-color: gray;
+  height: inherit;
+  width: inherit;
+}
+
+
+.create-quiz_-_view_--_card {
+  position: absolute;
+  //background-color: blue;
+  top: 50%;
+  width: inherit;
+  //padding: 0;
+  //margin:0;
+  //left: 50%;
+  transform: translateY(-50%) scale(1.3);
+}
 
 // Special Classes -------------------------------------------------------------
 .active {

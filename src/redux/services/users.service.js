@@ -1,5 +1,7 @@
 import axios from 'axios'
-import { API } from '../helpers';
+// import { API } from '../helpers';
+const BASE_URL = process.env.REACT_APP_BASE_URL;
+
 
 export const userService = {
     fetchUsers,
@@ -7,7 +9,7 @@ export const userService = {
 };
 
 async function fetchUsers() {
-    return await axios.get(`${API.URL}/user`)
+    return await axios.get(`${BASE_URL}/user`)
             .then(resp => resp.data)
             .catch(error => Promise.reject(error));
 }
@@ -25,7 +27,7 @@ async function login(username, password) {
         }
     };
 
-    return await axios.get(`${API.URL}`)
+    return await axios.get(`${BASE_URL}`)
         .then(resp => resp.data)
         .catch(error => Promise.reject(error));
 }
