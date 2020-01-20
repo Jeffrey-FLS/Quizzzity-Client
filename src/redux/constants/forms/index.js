@@ -1,11 +1,8 @@
 
-// export * from './test.costants';
-import testConstants from './test.costants';
-import usersConstants from "./users.constants";
-import quizConstants from "./quiz.constants";
+import quizFormConstants from "./quizForm.constants";
 
-export {
-    testConstants,
-    usersConstants,
-    quizConstants
-}
+const formsConstants = {
+    quiz: quizFormConstants
+};
+
+export default formsConstants;

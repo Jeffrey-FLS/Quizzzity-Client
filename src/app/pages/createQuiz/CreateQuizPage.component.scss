@@ -1,5 +1,6 @@
 
 
+@import '../../../styles/_palette.scss';
 
 
 .create-quiz {
@@ -13,10 +14,10 @@
   &::before {
     content: '';
     position: absolute;
-    top: 90px;
+    top: 0;
     left: 42px;
     width: 11px;
-    height: 400px;
+    height: 100%;
     //background-color: #eeeeee;
     background-color: #E0E0E0;
     z-index: -1;
@@ -59,12 +60,12 @@
 
 .create-quiz_-_forms {
   //height: 540px;
-  height: 650px;
+  //height: 650px;
   border-radius: 25px;
   box-shadow: 0 3px 7px 0 rgba(0, 0, 0, 0.30);
   background-color: #ffffff;
   text-align: center;
-  padding: 12px 30px;
+  padding: 15px 30px;
 }
 
 .create-quiz_-_forms form {
@@ -174,6 +175,41 @@
   font-size: 6rem;
 }
 
+
+.create-quiz_-_forms_--_save-next {
+  //background-color: gray;
+  text-align: right;
+  margin: 1rem 0;
+
+  button {
+    height: 50px;
+    width: 120px;
+    font-size: 1.2rem;
+    //padding: 1rem;
+    margin-left: 1rem;
+    border-radius: 35px;
+    color: white;
+    box-shadow: 0 3px 7px 0 rgba(0, 0, 0, 0.30);
+
+  }
+
+  button:first-child {
+    background-color: $palette-blue;
+  }
+
+  button:nth-child(2) {
+    background-color: #43a047;
+  }
+  //height: 100px;
+  //position: relative;
+  //width: 100%;
+}
+
+.create-quiz_-_forms_--_save-next-icon {
+  font-size: 1.5rem;
+}
+
+
 .create-quiz_-_view {
   //background-color: gray;
   height: inherit;
@@ -186,11 +222,12 @@
   //background-color: blue;
   top: 50%;
   width: inherit;
-  //padding: 0;
-  //margin:0;
-  //left: 50%;
   transform: translateY(-50%) scale(1.3);
 }
+
+
+
+
 
 // Special Classes -------------------------------------------------------------
 .active {

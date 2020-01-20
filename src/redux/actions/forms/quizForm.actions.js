@@ -1,30 +1,16 @@
 
-import { quizConstants as C } from "../constants";
-import { quizService } from "../services/";
+import formsConstants from "../../constants/forms";
+const C = formsConstants.quiz;
 
-export const quizActions = {
-    fetchQuizzes
+const quizFormActions = {
+    changeTitle
 };
 
-
-function fetchQuizzes() {
-    return (dispatch) => {
-        dispatch(request());
-
-        quizService.fetchQuizzes()
-            .then(
-                quizzes => dispatch(success(quizzes)),
-                error => dispatch(failure(error.toString()))
-                );
-    };
-
-    function request() {return {type: C.FETCH_QUIZZES_REQUEST}}
-
-    function success(quizzes) {
-        return {type: C.FETCH_QUIZZES_SUCCESS, payload: quizzes}
-    }
-
-    function failure(error) {
-        return {type: C.FETCH_QUIZZES_FAILURE, payload: error}
-    }
+function changeTitle(title) {
+       return {
+           type: C.CHANGE_TITLE,
+           payload: title
+       }
 }
+
+export default quizFormActions;

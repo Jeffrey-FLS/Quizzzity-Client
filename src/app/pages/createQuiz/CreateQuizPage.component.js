@@ -3,9 +3,11 @@ import React, {Component} from 'react';
 
 // Libs Components
 import {
-    FaSearch,
-    FaRegImages
+    FaRegImages,
+    FaRegSave
 } from 'react-icons/fa';
+
+import { MdKeyboardArrowRight } from 'react-icons/md'
 
 
 // Assets
@@ -108,6 +110,12 @@ class CreateQuizPage extends Component {
                             </div>
 
                         </form>
+
+                        <div className="create-quiz_-_forms_--_save-next">
+                            <button><FaRegSave className="create-quiz_-_forms_--_save-next-icon"/> Save</button>
+                            <button>Next <MdKeyboardArrowRight className="create-quiz_-_forms_--_save-next-icon"/></button>
+                        </div>
+
                     </div>
 
                     <div className="create-quiz_-_view col-4 offset-1">
