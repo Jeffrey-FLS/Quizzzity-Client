@@ -5,10 +5,10 @@ import PropTypes from 'prop-types';
 import './Card.component.scss';
 // import image from '../../../../../assets/images/react.jpeg';
 
-import OneBar from '../../../../../assets/icons/Bar-level/one-bar.svg'
-import TwoBar from '../../../../../assets/icons/Bar-level/two-bars.svg'
-import ThreeBar from '../../../../../assets/icons/Bar-level/three-bars.svg'
-import imgPlaceholder from '../../../../../assets/images/img-placeholder.png'
+import OneBar from '../../../assets/icons/Bar-level/one-bar.svg'
+import TwoBar from '../../../assets/icons/Bar-level/two-bars.svg'
+import ThreeBar from '../../../assets/icons/Bar-level/three-bars.svg'
+import imgPlaceholder from '../../../assets/images/img-placeholder.png'
 
 import {FaRegClock} from 'react-icons/fa';
 

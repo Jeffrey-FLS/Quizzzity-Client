@@ -1,7 +1,39 @@
 
+/**
+* Example of property order and category naming convention for comment
+********************************************************************************
+* .class {
+*  //------------------------- Font & Text
+*    text-align: val;
+*    text-shadow: val;
+*  //------------------------- Color & Background
+*    background-color: val;
+*    color: val;
+*    opacity: val;
+*  //------------------------- Box
+*    height: val;
+*    width: val;
+*    border-radius: val;
+*  //------------------------- Positioning
+*    position: absolute;
+*    bottom: 0;
+*  //------------------------- List
+*    property: val;
+*  //------------------------- Table
+*    property: val;
+*  //------------------------- Miscellaneous
+*    property: val;
+*  //------------------------- Effect
+*    property: val;
+* }
+*/
 
+// Imports ---------------------------------------------------------------------
 @import '../../../styles/_palette.scss';
 
+/*******************************************************************************
+* Default |
+*********/
 
 .create-quiz {
   padding-top: 3%;
@@ -10,14 +42,16 @@
 .create-quiz_-_nav {
   //background-color: blue;
   padding: 0;
+  //position: relative;
 
   &::before {
     content: '';
     position: absolute;
     top: 0;
-    left: 42px;
+    left: 60%;
     width: 11px;
     height: 100%;
+    //transform: translateX(-60%);
     //background-color: #eeeeee;
     background-color: #E0E0E0;
     z-index: -1;
@@ -124,6 +158,8 @@
   text-align: left;
   padding: 10px;
   border: solid 3px #eeeeee;
+  margin-top: 15px;
+
   //background-color: #fff;
   position: relative;
 
@@ -194,11 +230,11 @@
   }
 
   button:first-child {
-    background-color: $palette-blue;
+    background-color: #43a047;
   }
 
   button:nth-child(2) {
-    background-color: #43a047;
+    background-color: $palette-blue;
   }
   //height: 100px;
   //position: relative;
@@ -225,6 +261,69 @@
   transform: translateY(-50%) scale(1.3);
 }
 
+// CSSTRANSITIONS Component ----------------------------------------------------
+/* appear - on page load */
+.fade-appear {
+  opacity: 0;
+  z-index: 1;
+}
+.fade-appear.fade-appear-active {
+  opacity: 1;
+  transition: opacity 1000ms linear;
+}
+
+/* enter */
+.fade-enter {
+  opacity: 0;
+  z-index: 1;
+}
+.fade-enter.fade-enter-active {
+  opacity: 1;
+  transition: opacity 5000ms linear 5000ms;
+}
+
+/* exit */
+.fade-exit {
+  opacity: 1;
+}
+.fade-exit.fade-exit-active {
+  opacity: 0;
+  transition: opacity 5000ms linear;
+}
+.fade-exit-done {
+  opacity: 0;
+}
+
+// SLIDE
+
+/* slide enter */
+.slide-enter {
+  opacity: 0;
+  transform: scale(0.97) translateY(5px);
+  z-index: 1;
+}
+.slide-enter.slide-enter-active {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+  transition: opacity 3000ms linear 1000ms, transform 3000ms ease-in-out 1000ms;
+}
+
+/* slide exit */
+.slide-exit {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+
+}
+.slide-exit.slide-exit-active {
+  opacity: 0;
+  transform: scale(0.97) translateY(5px);
+  transition: opacity 1500ms linear, transform 1500ms ease-out;
+}
+.slide-exit-done {
+  opacity: 0;
+}
+
+
 
 
 
@@ -234,3 +333,60 @@
   background-color: #0991ea;
   color: white;
 }
+
+// Animation ----------------------------------------------------------------------
+
+.create-quiz_-_forms {
+  transition: all 3s ease-in-out;
+}
+
+.create-quiz_-_nav_--_step-1,
+.create-quiz_-_nav_--_step-2,
+.create-quiz_-_nav_--_step-3 {
+  transition: all 0.3s ease-in-out;
+}
+
+// Active ----------------------------------------------------------------------
+
+// Hover -----------------------------------------------------------------------
+
+// Layouts ---------------------------------------------------------------------
+
+// Media Sizes -----------------------------------------------------------------
+
+
+/*******************************************************************************
+* XS |
+****/
+
+//@include mq('xs') {
+//
+//}
+
+
+/*******************************************************************************
+* SM |
+****/
+
+//@include mq('sm') {
+//
+//}
+
+
+/*******************************************************************************
+* MD |
+****/
+
+//@include mq('md') {
+//
+//}
+
+
+/*******************************************************************************
+* LG |
+****/
+
+//@include mq('lg') {
+//
+//}
+

@@ -5,7 +5,7 @@ import React, { Component } from 'react';
 import './UserHomePage.component.scss';
 
 // Components
-import Card from "./components/card/Card.component";
+import Card from "../../shared/card/Card.component";
 
 // Data
 // import data from "../../../data/temp_data";

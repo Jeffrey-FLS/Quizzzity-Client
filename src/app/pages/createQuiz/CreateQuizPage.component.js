@@ -1,5 +1,7 @@
 // React Components
 import React, {Component} from 'react';
+import { CSSTransition, TransitionGroup } from "react-transition-group";
+
 
 // Libs Components
 import {
@@ -7,20 +9,33 @@ import {
     FaRegSave
 } from 'react-icons/fa';
 
-import { MdKeyboardArrowRight } from 'react-icons/md'
+import {
+    MdKeyboardArrowRight,
+    MdKeyboardArrowLeft
+} from 'react-icons/md'
 
 
 // Assets
 import './CreateQuizPage.component.scss';
-import Card from "../userHome/components/card/Card.component";
+
+
+import Card from "../../shared/card/Card.component";
+import CreateQuizNav from "./components/createQuizNav/CreateQuizNav.component";
 // import imgPlaceholder from '../../../assets/images/img-placeholder.png'
-import imgPlaceholder from "assets/images/img-placeholder.png";
+
+import imgPlaceholder from 'assets/images/img-placeholder.png';
+
+import {
+    FormStepOne,
+    FormStepTwo,
+    FormStepThree
+} from "./components/createQuizForm";
 
 
 class CreateQuizPage extends Component {
-    constructor(props) {
-        super(props);
-    }
+    // constructor(props) {
+    //     super(props);
+    // }
 
     state = {
         form: {
@@ -33,32 +48,106 @@ class CreateQuizPage extends Component {
             quizzed: 0,
             collaborative: true,
             personal: false
+        },
+        formCtrls: {
+            activeStep: 1,
+            stepContent: ["Create Quiz", "Create Questions", "Select Options"]
+        },
+        questions: []
+    };
+
+    // handleOnChangeTextInput = (event) => {
+    //     this.setState({
+    //         form:{...this.state.form, title: event.target.value}
+    //     });
+    // };
+
+    // handleOnChangeFileInput = (event) => {
+    //     console.log(`
+    //         IMG URL IS ${URL.createObjectURL(event.target.files[0])}
+    //     `);
+    //
+    //   this.setState({
+    //       form:{...this.state.form, img: URL.createObjectURL(event.target.files[0])}
+    //   })
+    // };
+
+    handleOnClickActiveUpStep = () => {
+
+        if (this.state.formCtrls.activeStep >= 1 && this.state.formCtrls.activeStep <= 2) {
+            this.setState(prevState => ({
+                formCtrls: {...this.state.formCtrls, activeStep: prevState.formCtrls.activeStep + 1}
+            }));
         }
-    };
 
-    handleOnChangeTextInput = (event) => {
-        this.setState({
-            form:{...this.state.form, title: event.target.value}
-        });
-
-        // console.log(`
-        //  handleOnChangeInput IS ${this.state.title}
-        // `);
-    };
-
-    handleOnChangeFileInput = (event) => {
 
         console.log(`
-            IMG URL IS ${URL.createObjectURL(event.target.files[0])}
+            ACTIVE STATE IS ${this.state.formCtrls.activeStep}
         `);
+    };
 
-      this.setState({
-          form:{...this.state.form, img: URL.createObjectURL(event.target.files[0])}
-      })
+    handleOnClickActiveDownStep = () => {
+        if (this.state.formCtrls.activeStep >= 2 && this.state.formCtrls.activeStep <= 3) {
+            this.setState(prevState => ({
+                formCtrls: {...this.state.formCtrls, activeStep: prevState.formCtrls.activeStep - 1}
+            }));
+        }
+        // this.setState(prevState => ({
+        //     formCtrls: {...this.state.formCtrls, activeStep: prevState.formCtrls.activeStep - 1}
+        // }));
+    };
+
+    handleStateChange = (event) => {
+
+        // console.log(`
+        //     EVENT NAME IS ${event.target.name}
+        //     EVENT VALUE IS ${event.target.files[0]}
+        // `);
+
+        let payload = event.target.value;
+
+        switch (event.target.name) {
+                    case "title":
+                        this.setState({
+                            form:{...this.state.form, title: payload }
+                        });
+
+                        break;
+
+                    case "img":
+                        this.setState({
+                            form:{...this.state.form, img: URL.createObjectURL(event.target.files[0])}
+                        });
+
+                        break;
+                    default:
+                        return "Incorrect State"
+
+                        // img: imgPlaceholder,
+                        // duration: 0,
+                        // difficulty: 'beginner',
+                        // num_of_questions: 0,
+                        // quizzed: 0,
+                        // collaborative: true,
+                        // personal: false
+                }
+            };
+
+    getStepForm = (step) => {
+      switch (step) {
+          case 1:
+              return <FormStepOne form={this.state.form} handleState={this.handleStateChange}/>;
+          case 2:
+              return <FormStepTwo/>;
+          case 3:
+              // return <FormStepThree/>;
+          default:
+              return "Unknown Step"
+      }
     };
 
 
-    render() {
+        render() {
 
         // console.log(`
         //     THE images.placeholder VALUE IS ${images.placeholder}
@@ -67,55 +156,47 @@ class CreateQuizPage extends Component {
         return (
             <div className="create-quiz container">
                 <div className="row">
-                    <div className="create-quiz_-_nav col-1">
-                        <div className="create-quiz_-_nav_--_step-1 active">
-                            <h3>1</h3>
-                        </div>
-
-                        <div className="create-quiz_-_nav_--_step-2">
-                            <h3>2</h3>
-                        </div>
-
-                        <div className="create-quiz_-_nav_--_step-3">
-                            <h3>3</h3>
-                        </div>
+                    <div className="col-1">
+                        <CreateQuizNav activeStep={this.state.formCtrls.activeStep}/>
                     </div>
 
                     <div className="create-quiz_-_forms offset-1 col-5">
-                        <h2>Create New Quiz</h2>
 
-                        <form action="" className="create-quiz_-_forms_--_step1">
-                            <input type="text" placeholder="Title"
-                            onChange={this.handleOnChangeTextInput}/>
+                        <h2>
+                            {this.state.formCtrls.stepContent[
+                                this.state.formCtrls.activeStep - 1
+                                ]}
+                        </h2>
 
-                            <div className="create-quiz_-_forms_--_select">
-                            <select>
-                                <option value="0">Select</option>
-                                <option value="1">Audi</option>
-                                <option value="2">BMW</option>
-                                <option value="3">Citroen</option>
-                                <option value="4">Ford</option>
-                                <option value="5">Honda</option>
-                            </select>
-                            </div>
 
-                            <div className="create-quiz_-_forms_--_input-file">
-                                <h5>Upload Image</h5>
+                        {/*<TransitionGroup className="card-container">*/}
+                        {/*    <CSSTransition*/}
+                        {/*        key={this.state.formCtrls.activeStep}*/}
+                        {/*        timeout={500}*/}
+                        {/*        height={ 'auto' }*/}
+                        {/*        classNames="fade"*/}
+                        {/*    >*/}
+                        {/*        {this.getStepForm(this.state.formCtrls.activeStep)}*/}
 
-                                <div className="create-quiz_-_forms_--_input-file-btn">
-                                    <FaRegImages className="create-quiz_-_forms_--_input-file-btn_icon"/>
-                                    <input type="file" name="myfile" onChange={this.handleOnChangeFileInput}/>
-                                    <p>+ Add Quiz Image</p>
-                                </div>
-                            </div>
+                        {/*    </CSSTransition>*/}
+                        {/*</TransitionGroup>*/}
 
-                        </form>
 
                         <div className="create-quiz_-_forms_--_save-next">
-                            <button><FaRegSave className="create-quiz_-_forms_--_save-next-icon"/> Save</button>
-                            <button>Next <MdKeyboardArrowRight className="create-quiz_-_forms_--_save-next-icon"/></button>
-                        </div>
+                            {/*<button><FaRegSave className="create-quiz_-_forms_--_save-next-icon"/> Save</button>*/}
 
+                            <button onClick={this.handleOnClickActiveDownStep}>
+                                <MdKeyboardArrowLeft
+                                    className="create-quiz_-_forms_--_save-next-icon"
+                                /> Back
+                            </button>
+
+                            <button onClick={this.handleOnClickActiveUpStep}>
+                                Next
+                                <MdKeyboardArrowRight
+                                    className="create-quiz_-_forms_--_save-next-icon"/>
+                            </button>
+                        </div>
                     </div>
 
                     <div className="create-quiz_-_view col-4 offset-1">
