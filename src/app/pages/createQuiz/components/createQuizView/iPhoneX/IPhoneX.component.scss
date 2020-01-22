@@ -1,0 +1,157 @@
+
+
+/**
+* Example of property order and category naming convention for comment
+********************************************************************************
+* .class {
+*  //------------------------- Font & Text
+*    text-align: val;
+*    text-shadow: val;
+*  //------------------------- Color & Background
+*    background-color: val;
+*    color: val;
+*    opacity: val;
+*  //------------------------- Box
+*    height: val;
+*    width: val;
+*    border-radius: val;
+*  //------------------------- Positioning
+*    position: absolute;
+*    bottom: 0;
+*  //------------------------- List
+*    property: val;
+*  //------------------------- Table
+*    property: val;
+*  //------------------------- Miscellaneous
+*    property: val;
+*  //------------------------- Effect
+*    property: val;
+* }
+*/
+
+// Imports ---------------------------------------------------------------------
+@import '../../../../../../styles/_palette.scss';
+
+/*******************************************************************************
+* Default |
+*********/
+
+.iphone-x {
+  background-color: $palette-black;
+  width: 100%;
+  height: 100%;
+  border-radius: 50px;
+  padding: 21px;
+
+  &::after {
+    content: '';
+    position: absolute;
+    background-color: $palette-black;
+    height: 30px;
+    width: 170px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    top: 15px;
+    left: 109px;
+    //opacity: 0.5;
+  }
+}
+
+.iphone-x_-_content {
+  width: inherit;
+  height: inherit;
+  background-color: $palette-shady-white;
+  border-radius: 41px;
+}
+
+.iphone-x_-_content_--_body {
+  border-radius: inherit;
+  background-blend-mode: soft-light;
+  background-image: linear-gradient(to right, #0093ea, #0011ed);
+  height: 30%;
+}
+
+.iphone-x_-_content_--_top-header {
+  background-color: red;
+  height: 35px;
+  opacity: 0.5;
+  padding: 10px 25px;
+
+
+  p {
+    font-size: 0.8rem;
+    color: white;
+  }
+  //margin-top: 20px;
+  //padding-left: 30px;
+  //padding-top: 5px;
+  //font-size: 0.8rem;
+}
+
+.iphone-x_-_content_--_card-question {
+  height: 142px;
+  width: 85%;
+  margin: 0 auto;
+  margin-top: -45px;
+  border-radius: 10px;
+  box-shadow: 0px 3px 7px 0 rgba(0, 0, 0, 0.25);
+  background-color: #ffffff;
+}
+
+img {
+  position:absolute;
+  //top: 80px;
+  top: 0;
+  opacity: 0.5;
+  opacity: 0;
+  left: 10px;
+}
+
+
+// Special Classes -------------------------------------------------------------
+
+// Animation -------------------------------------------------------------------
+
+// Active ----------------------------------------------------------------------
+
+// Hover -----------------------------------------------------------------------
+
+// Layouts ---------------------------------------------------------------------
+
+// Media Sizes -----------------------------------------------------------------
+
+
+/*******************************************************************************
+* XS |
+****/
+
+//@include mq('xs') {
+//
+//}
+
+
+/*******************************************************************************
+* SM |
+****/
+
+//@include mq('sm') {
+//
+//}
+
+
+/*******************************************************************************
+* MD |
+****/
+
+//@include mq('md') {
+//
+//}
+
+
+/*******************************************************************************
+* LG |
+****/
+
+//@include mq('lg') {
+//
+//}

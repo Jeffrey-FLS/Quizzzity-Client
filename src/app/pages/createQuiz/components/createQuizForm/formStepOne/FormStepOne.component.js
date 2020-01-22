@@ -25,7 +25,7 @@ export class FormStepOne extends Component {
 
                     <div className="create-quiz_-_forms_--_select">
                         <select>
-                            <option value="0">Select</option>
+                            <option value="0">Select Category</option>
                             <option value="1">Audi</option>
                             <option value="2">BMW</option>
                             <option value="3">Citroen</option>

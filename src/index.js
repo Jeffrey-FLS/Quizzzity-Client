@@ -11,6 +11,7 @@ import {Provider} from 'react-redux';
 // Assets
 // import './libs/bootstrap-4.4.1-dist/css/bootstrap.min.css';
 import './libs/bootstrap-4.4.1/scss/bootstrap.scss';
+// import './libs/materialize-src/sass/materialize.scss'
 import './styles/index.scss';
 
 // Components
