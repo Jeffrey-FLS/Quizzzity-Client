@@ -12,9 +12,10 @@ import {
 import Switch from '@material-ui/core/Switch';
 
 
-export class FormStepThree extends Component {
+class QuizzingPage extends Component {
 
     render() {
+
         return (
             <form action="" className="create-quiz_-_forms_--_step1">
                 {/*<input type="text" placeholder="Write your question here"*/}
@@ -69,4 +70,4 @@ export class FormStepThree extends Component {
     }
 }
 
-// export default FormStepThree;
+export default QuizzingPage;

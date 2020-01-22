@@ -92,23 +92,7 @@ class Card extends Component {
 
 
     render() {
-        console.log(this.props.quiz);
-        // console.log(`
-        //     THIS IMG VALUE IS ${this.props.quiz.img}
-        // `);
-        // this.hello();
-
-        // let {
-        //     id,
-        //     title,
-        //     img,
-        //     duration,
-        //     difficulty,
-        //     num_of_questions,
-        //     quizzed,
-        //     collaborative,
-        //     personal
-        // } = this.props.quiz;
+        // console.log(this.props.quiz);
 
         let quiz = this.props.quiz;
 
