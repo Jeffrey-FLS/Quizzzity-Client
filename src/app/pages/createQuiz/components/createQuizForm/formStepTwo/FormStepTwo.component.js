@@ -19,64 +19,78 @@ export class FormStepTwo extends Component {
             question: "",
             questionType: "",
             singleMultiple: "",
-            answers: [
-                "answerOne",
-                "answerTwo",
-                "answerThree",
-                "answerFour"
-            ],
-            correctAnswer: 0
+            correctAnswer: "",
+            answerOne: "",
+            answerTwo: "",
+            answerThree: ""
         },
-
-        formCtrls: {
-            addQuestion: false
+        questionFormCtrl: {
+            validation: new Array(7).fill(false)
         }
     };
 
+
+
+    // Horrible looking code belowm please DO NOT LOOK!
+
+    // handleOnChange = (event) => {
+    //
+    //     console.log(`
+    //         EVENT.TARGET.VALUE IS ${event.target.value}
+    //     `);
+    //
+    //     let payload = event.target.value;
+    //     var bool = false;
+    //     var index = 0;
+    //
+    //
+    //     switch (event.target.name) {
+    //         case "question":
+    //             index = 0;
+    //             bool = (payload !== undefined);
+    //         case "questionType":
+    //             return false;
+    //         default:
+    //             return false;
+    //     }
+    //
+    //     this.setState({
+    //         questionFormCtrl: {
+    //             validation: this.questionFormCtrl.validation[index] = bool
+    //         }
+    //     });
+    // };
+
     render() {
+
         return (
             <form action="" className="create-quiz_-_forms_--_step1">
-                <input type="text" placeholder="Write your question here" name="question"
-                       onChange={this.handleOnChangeTextInput}/>
+                <input type="text" placeholder="Write your question here" name="question"/>
 
                 <div className="create-quiz_-_forms_--_select-half">
-                    <select>
+                    <select name="questionType">
                         <option value="0">Question Type</option>
-                        <option value="1">Audi</option>
-                        <option value="2">BMW</option>
-                        <option value="3">Citroen</option>
-                        <option value="4">Ford</option>
-                        <option value="5">Honda</option>
+                        <option value="select-questions">Select Questions</option>
+                        <option value="draggable">Draggable</option>
                     </select>
                 </div>
 
                 <div className="create-quiz_-_forms_--_select-half">
-                    <select>
-                        <option value="0">Single Answer</option>
-                        <option value="1">Audi</option>
-                        <option value="2">BMW</option>
-                        <option value="3">Citroen</option>
-                        <option value="4">Ford</option>
-                        <option value="5">Honda</option>
+                    <select name="singleMultiple">
+                        <option value="0">Answer Type</option>
+                        <option value="single-answer">Single Answer</option>
+                        <option value="multiple-answer">Multiple Answer</option>
                     </select>
                 </div>
 
                 <div className="create-quiz_-_forms_--_answers">
-                    <input type="text" placeholder="Write the correct Answer" name="question"
-                           onChange={this.handleOnChangeTextInput}/>
+                    <input type="text" placeholder="Write the correct Answer" name="correctAnswer"/>
 
-                    <input type="text" placeholder="Write the wrong answer" name="question"
-                           onChange={this.handleOnChangeTextInput}/>
+                    <input type="text" placeholder="Write the wrong answer" name="answerOne"/>
 
-                    <input type="text" placeholder="Write the wrong answer" name="question"
-                           onChange={this.handleOnChangeTextInput}/>
+                    <input type="text" placeholder="Write the wrong answer" name="answerTwo"/>
 
-                    <input type="text" placeholder="Write the wrong answer" name="question"
-                           onChange={this.handleOnChangeTextInput}/>
-                    {/*<label className="container-check">One*/}
-                    {/*    <input type="checkbox" checked="checked" />*/}
-                    {/*    <span className="checkmarker"></span>*/}
-                    {/*</label>*/}
+                    <input type="text" placeholder="Write the wrong answer" name="answerThree"/>
                 </div>
             </form>
         )

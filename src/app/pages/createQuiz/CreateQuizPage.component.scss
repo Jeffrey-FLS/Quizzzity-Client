@@ -180,7 +180,6 @@
   padding: 10px;
   border: solid 3px #eeeeee;
   margin-top: 15px;
-
   //background-color: #fff;
   position: relative;
 
@@ -190,6 +189,19 @@
   //  text-align: center;
   //  background-color: brown;
   //}
+  h6 {
+    display: inline-block;
+    //background-color: red;
+  }
+}
+
+.create-quiz_-_forms_--_input-file-url-local {
+  //background-color: blue;
+  height: 100px;
+  width: 100px;
+  display: inline;
+  text-align: right;
+  margin-left: 100px;
 }
 
 .create-quiz_-_forms_--_input-file-btn {
@@ -262,13 +274,19 @@
   //width: 100%;
 }
 
-.create-quiz_-_forms_--_save-next-icon {
+.create-quiz_-_forms_--_save-next-icon,
+.create-quiz_-_forms_--_submit-icon {
   font-size: 1.5rem;
+}
+
+.create-quiz_-_forms_--_submit-icon {
+  margin-left: 5px;
+  margin-bottom: 4px;
 }
 
 
 .create-quiz_-_view {
-  background-color: gray;
+  //background-color: gray;
   height: inherit;
   width: inherit;
 }
@@ -304,6 +322,8 @@
   width: 20%;
   padding-bottom: 3%;
 }
+
+
 
 // CSSTRANSITIONS Component ----------------------------------------------------
 /* appear - on page load */
