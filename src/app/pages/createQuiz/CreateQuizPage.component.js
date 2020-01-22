@@ -50,10 +50,10 @@ class CreateQuizPage extends Component {
             personal: false
         },
         formCtrls: {
-            activeStep: 2,
+            activeStep: 1,
             stepContent: ["Create Quiz", "Create Questions", "Select Options"],
             urlLocal: true,
-            createQuestion: true,
+            createQuestion: false,
             questionValid: true
         },
         questions: []
