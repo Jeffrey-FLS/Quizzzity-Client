@@ -222,12 +222,15 @@ class CreateQuizPage extends Component {
                     </div>
 
                     <div className="create-quiz_-_view col-4 offset-1">
-                            {(this.state.formCtrls.activeStep === 2)
-                                ? <IPhoneX/>
-                                : <div className="create-quiz_-_view_--_card">
-                                    <Card quiz={this.state.form}/>
-                                 </div>
-                            }
+                            {/*{(this.state.formCtrls.activeStep === 2)*/}
+                            {/*    ? <IPhoneX/>*/}
+                            {/*    : <div className="create-quiz_-_view_--_card">*/}
+                            {/*        <Card quiz={this.state.form}/>*/}
+                            {/*     </div>*/}
+                            {/*}*/}
+                        <div className="create-quiz_-_view_--_card">
+                            <Card quiz={this.state.form}/>
+                        </div>
                     </div>
                 </div>
             </div>

@@ -77,16 +77,16 @@ class Card extends Component {
         switch (intDifficulty) {
             case 'beginner':
                 return <img src={OneBar} alt="OneBar"/>;
-                break;
+                // break;
             case 'intermediate':
                 return <img src={TwoBar} alt="TwoBar"/>;
-                break;
+                // break;
             case 'advanced':
                 return <img src={ThreeBar} alt="ThreeBar"/>;
-                break;
+                // break;
             default:
                 return <img src={OneBar} alt="OneBar"/>;
-                break;
+                // break;
         }
     };
 
