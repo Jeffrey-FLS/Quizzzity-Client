@@ -96,6 +96,8 @@ class Card extends Component {
 
         let quiz = this.props.quiz;
 
+
+
         return (
             <div className="card-uniq col-3">
                 <div className="card_-_body">

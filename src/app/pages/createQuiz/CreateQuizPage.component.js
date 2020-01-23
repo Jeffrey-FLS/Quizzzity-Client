@@ -37,6 +37,10 @@ import IPhoneX from "./components/createQuizView/iPhoneX/IPhoneX.component";
 
 class CreateQuizPage extends Component {
 
+    constructor(props) {
+        super(props);
+    }
+
     state = {
         form: {
             id: 1,
@@ -54,11 +58,31 @@ class CreateQuizPage extends Component {
             stepContent: ["Create Quiz", "Create Questions", "Select Options"],
             urlLocal: true,
             createQuestion: false,
-            questionValid: true
+            questionValid: false
+        },
+        questionForm: {
+            question: "",
+            questionType: "",
+            singleMultiple: "",
+            correctAnswer: "",
+            answerOne: "",
+            answerTwo: "",
+            answerThree: ""
         },
         questions: []
     };
 
+
+    componentDidUpdate(prevProps, prevState) {
+        if (prevState.questions !== this.state.questions) {
+            this.setNumOfQuestionsDuration();
+            // console.log('pokemons state has changed.')
+        }
+    }
+
+    // componentDidUpdate() {
+    //     this.calculatedDuration();
+    // }
 
     setAddQuestion = (bool) => {
         // if (bool !== this.state.formCtrls.createQuestion) {
@@ -69,6 +93,22 @@ class CreateQuizPage extends Component {
                 }
             });
         // }
+    };
+
+
+    // FIXME: bad implementation
+    resetQuestionState = () => {
+        this.setState({
+            questionForm: {
+                question: "",
+                questionType: "",
+                singleMultiple: "",
+                correctAnswer: "",
+                answerOne: "",
+                answerTwo: "",
+                answerThree: ""
+            }
+        })
     };
 
     handleOnClickActiveUpStep = () => {
@@ -118,6 +158,7 @@ class CreateQuizPage extends Component {
 
         console.log(`
             EVENT ID IS ${event.target.id}
+            EVENT VALUE IS ${event.target.value}
             EVENT CHECKED IS ${event.target.checked}
         `);
 
@@ -160,6 +201,12 @@ class CreateQuizPage extends Component {
                 });
                 break;
 
+            case "difficulty":
+                this.setState({
+                    form: {...this.state.form, difficulty: payload}
+                });
+                break;
+
             case "collaborative":
                 this.setState(prevState => ({
                     form: {
@@ -187,8 +234,66 @@ class CreateQuizPage extends Component {
                 }));
                 break;
 
+            // Question Forms --------------------------------------------------
+
+            case "question":
+                this.setState({
+                    questionForm: {...this.state.questionForm, question: payload}
+                });
+
+                    if (this.state.questionForm.question !== undefined) {
+                        this.handleQuestionValidation(true);
+                    }
+                break;
+
+            case "questionType":
+                this.setState({
+                    questionForm: {...this.state.questionForm, questionType: payload}
+                });
+                break;
+
+            case "singleMultiple":
+                this.setState({
+                    questionForm: {...this.state.questionForm, singleMultiple: payload}
+                });
+                break;
+
+            case "correctAnswer":
+                this.setState({
+                    questionForm: {...this.state.questionForm, correctAnswer: payload}
+                });
+                break;
+
+            case "answerOne":
+                this.setState({
+                    questionForm: {...this.state.questionForm, answerOne: payload}
+                });
+                break;
+
+            case "answerTwo":
+                this.setState({
+                    questionForm: {...this.state.questionForm, answerTwo: payload}
+                });
+                break;
+
+            case "answerThree":
+                this.setState({
+                    questionForm: {...this.state.questionForm, answerThree: payload}
+                });
+                break;
+
             default:
                 return "Incorrect State"
+
+                // questionForm: {
+                //     question: "",
+            //         questionType: "",
+            //         singleMultiple: "",
+            //         correctAnswer: "",
+            //         answerOne: "",
+            //         answerTwo: "",
+            //         answerThree: ""
+                // },
 
             // img: imgPlaceholder,
             // duration: 0,
@@ -200,11 +305,11 @@ class CreateQuizPage extends Component {
         }
     };
 
-    handleQuestionValidation = () => {
+    handleQuestionValidation = (bool) => {
         this.setState({
             formCtrls: {
                 ...this.state.formCtrls,
-                questionValid: true
+                questionValid: bool
             }
         })
     };
@@ -219,6 +324,7 @@ class CreateQuizPage extends Component {
                 return <Fragment>
                     {(this.state.formCtrls.createQuestion)
                         ? <FormCreateQuestion formCtrls={this.state.formCtrls}
+                                              questions={this.state.questions}
                                               setAddQuestion={this.setAddQuestion}/>
                         : <FormStepTwo form={this.state.form}
                                        formCtrls={this.state.formCtrls}
@@ -233,12 +339,84 @@ class CreateQuizPage extends Component {
         }
     };
 
-    handleOnClickAddQuestion = (question) => {
-        this.setState({
-            questions: {...this.state.questions, question}
-        })
+    handleOnClickAddQuestion = () => {
+        let question = {...this.state.questionForm};
+
+        console.log(`
+            QUESTION IS ${JSON.stringify(question)}
+            `);
+
+        this.setState(prevState => ({
+            questions: [...this.state.questions, question]
+            // formCtrls: {...this.state.formCtrls, createQuestion: true}
+        }));
+
+        console.log(`
+            QUESTION IS ${JSON.stringify(question)}
+            STATE IS ${JSON.stringify(this.state.questions)}
+            CREATEQUESTION VALUE IS ${this.state.formCtrls.createQuestion}
+        `);
+
+
+        this.setAddQuestion(true);
+
+        // console.log(`
+        //     CREATEQUESTION VALUE IS ${this.state.formCtrls.createQuestion}
+        // `);
+
+        this.resetQuestionState();
+        this.handleQuestionValidation(false);
     };
 
+
+    // componentDidUpdate(): void {
+    //     if (this.state.questionForm.question !== undefined) {
+    //         this.handleQuestionValidation(true);
+    //     }
+    // }
+
+
+    setNumOfQuestionsDuration = () => {
+        if (this.state.questions.length !== 0) {
+            let durationVal = this.state.questions.length * 3;
+
+            console.log(`DURATIONVAL IS ${durationVal}`);
+
+            this.setState({
+                form:{
+                    ...this.state.form,
+                    num_of_questions: this.state.questions.length,
+                    duration: durationVal
+                }
+            })
+        }
+    };
+
+    // calculatedDuration = () => {
+    //
+    //     // console.log(`
+    //     //     THE AMOUNT OF QUESTIONS ARE ${this.state.questions.length}
+    //     //     AND DURATION IS ${this.state.questions.length * 3}
+    //     // `);
+    //
+    //     if (this.state.questions.length !== 0) {
+    //         let durationVal = this.state.questions.length * 3;
+    //
+    //         console.log(`DURATIONVAL IS ${durationVal}`);
+    //
+    //         this.setState({
+    //             form:{
+    //                 ...this.state.form,
+    //                 duration: durationVal
+    //             }
+    //         })
+    //     }
+
+    //     console.log(`
+    //         THE AMOUNT OF QUESTIONS ARE ${this.state.questions.length}
+    //         AND DURATION IS ${this.state.form.duration}
+    //     `);
+    // };
 
     render() {
 
@@ -246,15 +424,19 @@ class CreateQuizPage extends Component {
         //     THE images.placeholder VALUE IS ${images.placeholder}
         // `);
 
+        // if (this.state.questionForm.question !== undefined) {
+        //     this.handleQuestionValidation(true);
+        // }
+
         const backBtn =
-            <button onClick={this.handleOnClickActiveDownStep}>
+            <button onClick={() => {this.handleOnClickActiveDownStep()}}>
                 <MdKeyboardArrowLeft
                     className="create-quiz_-_forms_--_save-next-icon"
                 /> Back
             </button>;
 
         const nextBtn =
-            <button onClick={this.handleOnClickActiveUpStep}>
+            <button onClick={() => {this.handleOnClickActiveUpStep()}}>
                 {(this.state.formCtrls.activeStep === 3)
                     ? <>Finish<FaRegSave className="create-quiz_-_forms_--_submit-icon"/></>
                     : <>Next<MdKeyboardArrowRight className="create-quiz_-_forms_--_save-next-icon"/></>}
@@ -263,7 +445,7 @@ class CreateQuizPage extends Component {
             </button>;
 
         const submitQuestionBtn =
-            <button onClick={this.handleOnClickAddQuestion}
+            <button onClick={() => {this.handleOnClickAddQuestion();this.setAddQuestion(true);}}
                 style={{backgroundColor:(!this.state.formCtrls.questionValid) && "gray"}}
                 disabled={!this.state.formCtrls.questionValid}
             >Submit
