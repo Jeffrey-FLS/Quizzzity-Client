@@ -2,9 +2,11 @@
 import { quizConstants as C } from "../constants";
 import { quizService } from "../services/";
 
-import { createBrowserHistory } from 'history';
+import { history } from "../helpers";
 
-export const history = createBrowserHistory();
+// import { createBrowserHistory } from 'history';
+//
+// export const history = createBrowserHistory();
 
 export const quizActions = {
     fetchQuizzes,
@@ -36,10 +38,10 @@ function createQuiz(quiz, questions) {
             .then(
                 quizzes => {
                     dispatch(success(quizzes));
-                    console.log(`
-                        HISTORY IS ${JSON.stringify(history)}
-                     `);
-                    // history.push('/');
+                    // console.log(`
+                    //     HISTORY IS ${JSON.stringify(history)}
+                    //  `);
+                    history.push('/');
                 },
                 error => dispatch(failure(error.toString()))
             );
