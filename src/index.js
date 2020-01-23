@@ -2,7 +2,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import * as serviceWorker from './serviceWorker';
-import {BrowserRouter as Router, Route} from 'react-router-dom';
+// import {BrowserRouter as Router, Route} from 'react-router-dom';
+import {Router, Route} from 'react-router-dom';
 import WebFont from 'webfontloader';
 import store from './redux/store';
 import {Provider} from 'react-redux';
@@ -12,6 +13,7 @@ import {Provider} from 'react-redux';
 // import './libs/bootstrap-4.4.1-dist/css/bootstrap.min.css';
 import './libs/bootstrap-4.4.1/scss/bootstrap.scss';
 import './styles/index.scss';
+import { history } from "redux/helpers";
 
 // Components
 import App from './app/App';
@@ -27,11 +29,11 @@ WebFont.load({
     }
 });
 
-console.log(store);
+// console.log(store);
 
 ReactDOM.render(
     <Provider store={store}>
-        <Router>
+        <Router history={history}>
             <Route path="/" component={App}/>
         </Router>
     </Provider>,
