@@ -2,8 +2,13 @@
 import { quizConstants as C } from "../constants";
 import { quizService } from "../services/";
 
+import { createBrowserHistory } from 'history';
+
+export const history = createBrowserHistory();
+
 export const quizActions = {
-    fetchQuizzes
+    fetchQuizzes,
+    createQuiz
 };
 
 
@@ -19,12 +24,28 @@ function fetchQuizzes() {
     };
 
     function request() {return {type: C.FETCH_QUIZZES_REQUEST}}
+    function success(quizzes) {return {type: C.FETCH_QUIZZES_SUCCESS, payload: quizzes}}
+    function failure(error) {return {type: C.FETCH_QUIZZES_FAILURE, payload: error}}
+}
 
-    function success(quizzes) {
-        return {type: C.FETCH_QUIZZES_SUCCESS, payload: quizzes}
-    }
+function createQuiz(quiz, questions) {
+    return (dispatch) => {
+        dispatch(request());
 
-    function failure(error) {
-        return {type: C.FETCH_QUIZZES_FAILURE, payload: error}
-    }
+        quizService.createQuiz(quiz, questions)
+            .then(
+                quizzes => {
+                    dispatch(success(quizzes));
+                    console.log(`
+                        HISTORY IS ${JSON.stringify(history)}
+                     `);
+                    // history.push('/');
+                },
+                error => dispatch(failure(error.toString()))
+            );
+    };
+
+    function request() {return {type: C.CREATE_QUIZZES_REQUEST}}
+    function success(quizzes) {return {type: C.CREATE_QUIZZES_SUCCESS, payload: quizzes}}
+    function failure(error) {return {type: C.CREATE_QUIZZES_FAILURE, payload: error}}
 }

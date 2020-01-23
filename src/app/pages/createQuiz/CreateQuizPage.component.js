@@ -32,6 +32,9 @@ import {
 
 import IPhoneX from "./components/createQuizView/iPhoneX/IPhoneX.component";
 
+import {quizActions} from "../../../redux/actions";
+import {connect} from "react-redux";
+
 // import {FormCreateQuestion} from "app/pages/createQuiz/components/createQuizForm/formCreateQuestion/FormCreateQuestion.component";
 
 
@@ -360,6 +363,9 @@ class CreateQuizPage extends Component {
 
         this.setAddQuestion(true);
 
+
+        // this.props.createQuiz(this.state.form, this.state.questions);
+
         // console.log(`
         //     CREATEQUESTION VALUE IS ${this.state.formCtrls.createQuestion}
         // `);
@@ -368,12 +374,6 @@ class CreateQuizPage extends Component {
         this.handleQuestionValidation(false);
     };
 
-
-    // componentDidUpdate(): void {
-    //     if (this.state.questionForm.question !== undefined) {
-    //         this.handleQuestionValidation(true);
-    //     }
-    // }
 
 
     setNumOfQuestionsDuration = () => {
@@ -392,41 +392,7 @@ class CreateQuizPage extends Component {
         }
     };
 
-    // calculatedDuration = () => {
-    //
-    //     // console.log(`
-    //     //     THE AMOUNT OF QUESTIONS ARE ${this.state.questions.length}
-    //     //     AND DURATION IS ${this.state.questions.length * 3}
-    //     // `);
-    //
-    //     if (this.state.questions.length !== 0) {
-    //         let durationVal = this.state.questions.length * 3;
-    //
-    //         console.log(`DURATIONVAL IS ${durationVal}`);
-    //
-    //         this.setState({
-    //             form:{
-    //                 ...this.state.form,
-    //                 duration: durationVal
-    //             }
-    //         })
-    //     }
-
-    //     console.log(`
-    //         THE AMOUNT OF QUESTIONS ARE ${this.state.questions.length}
-    //         AND DURATION IS ${this.state.form.duration}
-    //     `);
-    // };
-
     render() {
-
-        // console.log(`
-        //     THE images.placeholder VALUE IS ${images.placeholder}
-        // `);
-
-        // if (this.state.questionForm.question !== undefined) {
-        //     this.handleQuestionValidation(true);
-        // }
 
         const backBtn =
             <button onClick={() => {this.handleOnClickActiveDownStep()}}>
@@ -436,7 +402,10 @@ class CreateQuizPage extends Component {
             </button>;
 
         const nextBtn =
-            <button onClick={() => {this.handleOnClickActiveUpStep()}}>
+            <button onClick={() => {
+                (this.state.formCtrls.activeStep === 3)
+                    ? this.props.createQuiz(this.state.form, this.state.questions)
+                    : this.handleOnClickActiveUpStep()}}>
                 {(this.state.formCtrls.activeStep === 3)
                     ? <>Finish<FaRegSave className="create-quiz_-_forms_--_submit-icon"/></>
                     : <>Next<MdKeyboardArrowRight className="create-quiz_-_forms_--_save-next-icon"/></>}
@@ -479,12 +448,6 @@ class CreateQuizPage extends Component {
                             {(this.state.formCtrls.activeStep === 2 && !this.state.formCtrls.createQuestion)
                                 ? submitQuestionBtn
                                 : nextBtn}
-
-                            {/*<button onClick={this.handleOnClickActiveUpStep}>*/}
-                            {/*    {(this.state.formCtrls.activeStep === 3) ? "Finish" : "Next"}*/}
-                            {/*    <MdKeyboardArrowRight*/}
-                            {/*        className="create-quiz_-_forms_--_save-next-icon"/>*/}
-                            {/*</button>*/}
                         </div>
                     </div>
 
@@ -502,4 +465,8 @@ class CreateQuizPage extends Component {
     }
 }
 
-export default CreateQuizPage;
+const mdp = {
+    createQuiz: quizActions.createQuiz
+};
+
+export default connect(null, mdp)(CreateQuizPage);
