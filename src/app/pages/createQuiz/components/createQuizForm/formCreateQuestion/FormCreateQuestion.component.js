@@ -18,6 +18,8 @@ export class FormCreateQuestion extends Component {
                 <div className="create-quiz_-_forms-create-question">
                     <h6>One question is required to create quiz</h6>
 
+                    {(this.props.questions) && this.props.questions.map(question => <h3>{question.question}</h3>)}
+
                     <button onClick={() => {this.props.setAddQuestion(false)}}>
                         <FaPlusCircle className="create-quiz_-_forms-create-question_--_icon"/>
                         <h5>Click to add question</h5>

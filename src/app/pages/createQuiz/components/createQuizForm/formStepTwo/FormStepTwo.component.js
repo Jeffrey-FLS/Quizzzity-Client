@@ -14,20 +14,20 @@ import './FormStepTwo.component.scss';
 
 export class FormStepTwo extends Component {
 
-    state = {
-        questionForm: {
-            question: "",
-            questionType: "",
-            singleMultiple: "",
-            correctAnswer: "",
-            answerOne: "",
-            answerTwo: "",
-            answerThree: ""
-        },
-        questionFormCtrl: {
-            validation: new Array(7).fill(false)
-        }
-    };
+    // state = {
+    //     questionForm: {
+    //         question: "",
+    //         questionType: "",
+    //         singleMultiple: "",
+    //         correctAnswer: "",
+    //         answerOne: "",
+    //         answerTwo: "",
+    //         answerThree: ""
+    //     },
+    //     questionFormCtrl: {
+    //         validation: new Array(7).fill(false)
+    //     }
+    // };
 
 
 
@@ -65,32 +65,37 @@ export class FormStepTwo extends Component {
 
         return (
             <form action="" className="create-quiz_-_forms_--_step1">
-                <input type="text" placeholder="Write your question here" name="question"/>
+                <input type="text" placeholder="Write your question here" name="question"
+                       onChange={this.props.handleState}/>
 
                 <div className="create-quiz_-_forms_--_select-half">
-                    <select name="questionType">
-                        <option value="0">Question Type</option>
+                    <select name="questionType" onChange={this.props.handleState}>
+                        <option value="blank">Question Type</option>
                         <option value="select-questions">Select Questions</option>
                         <option value="draggable">Draggable</option>
                     </select>
                 </div>
 
                 <div className="create-quiz_-_forms_--_select-half">
-                    <select name="singleMultiple">
-                        <option value="0">Answer Type</option>
+                    <select name="singleMultiple" onChange={this.props.handleState}>
+                        <option value="blank">Answer Type</option>
                         <option value="single-answer">Single Answer</option>
                         <option value="multiple-answer">Multiple Answer</option>
                     </select>
                 </div>
 
                 <div className="create-quiz_-_forms_--_answers">
-                    <input type="text" placeholder="Write the correct Answer" name="correctAnswer"/>
+                    <input type="text" placeholder="Write the correct Answer" name="correctAnswer"
+                           onChange={this.props.handleState}/>
 
-                    <input type="text" placeholder="Write the wrong answer" name="answerOne"/>
+                    <input type="text" placeholder="Write the wrong answer" name="answerOne"
+                           onChange={this.props.handleState}/>
 
-                    <input type="text" placeholder="Write the wrong answer" name="answerTwo"/>
+                    <input type="text" placeholder="Write the wrong answer" name="answerTwo"
+                           onChange={this.props.handleState}/>
 
-                    <input type="text" placeholder="Write the wrong answer" name="answerThree"/>
+                    <input type="text" placeholder="Write the wrong answer" name="answerThree"
+                           onChange={this.props.handleState}/>
                 </div>
             </form>
         )

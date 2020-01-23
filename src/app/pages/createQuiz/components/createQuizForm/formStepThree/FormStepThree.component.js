@@ -21,11 +21,11 @@ export class FormStepThree extends Component {
                 {/*       onChange={this.handleOnChangeTextInput}/>*/}
 
                 <div className="create-quiz_-_forms_--_select">
-                    <select>
-                        <option value="0">Select Difficulty</option>
-                        <option value="1">Beginner</option>
-                        <option value="2">Intermediate</option>
-                        <option value="3">Advanced</option>
+                    <select name="difficulty" onChange={this.props.handleState}>
+                        <option value="beginner">Select Difficulty</option>
+                        <option value="beginner">Beginner</option>
+                        <option value="intermediate">Intermediate</option>
+                        <option value="advanced">Advanced</option>
                     </select>
                 </div>
 
