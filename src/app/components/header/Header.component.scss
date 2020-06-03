@@ -35,6 +35,13 @@
 * Default |
 *********/
 
+//.header--component {
+//  height: 100%;
+//  width: 100%;
+//  //background-color: #616161;
+//  position: absolute;
+//}
+
 .header {
   width: 98%;
   height: 60px;
@@ -45,7 +52,15 @@
   background-blend-mode: soft-light;
   background-image: linear-gradient(to right, #0093ea, #0011ed);
   border-radius: 15px;
+  //position: relative;
 }
+
+.header--off {
+  background-color: transparent;
+  background-image: none;
+  box-shadow: none;
+}
+
 
 .header_-_logo {
   text-align: left;

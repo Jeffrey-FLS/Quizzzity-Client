@@ -16,9 +16,28 @@ import {
 
 class Header extends Component {
 
+    constructor(props) {
+        super(props);
+    }
+
     state = {
         isActive: false
     };
+
+    componentWillMount() {
+        if (this.props.quizzing) {
+            document.body.style.backgroundColor = "#616161";
+        }
+    }
+
+
+    // componentDidUpdate(prevProps, prevState, snapshot) {
+    //     // if (prevProps.location.pathname !== this.props.location.pathname) {
+    //     if (this.props.quizzing) {
+    //         document.body.style.backgroundColor = "green";
+    //     }
+    //     // }
+    // }
 
     toggleButton = () => {
         this.setState({
@@ -27,26 +46,49 @@ class Header extends Component {
     };
 
     render() {
+
+        let createQuizBtn =
+            <Link to="/create-quiz">
+                <h3>
+                    <FaPlusCircle
+                        className="header_-_create-quiz-icon"/> Create
+                    New Quiz
+                </h3>
+            </Link>;
+
+        let searchBar =
+            <>
+                <input type="text" placeholder="Search"/>
+                <button><FaSearch/></button>
+            </>;
+
+
         return (
-            <header className="header container-fluid">
+            <header className={`header container-fluid ${(this.props.quizzing) && "header--off"}`}>
                 <div className="row">
                     <div className="header_-_logo col-1">
                         {/*<Link to="/"><h2>Qwix</h2></Link>*/}
-                        <Link to="/"><h2>Quizzzity</h2></Link>
+                        <Link to="/home"><h2>Quizzzity</h2></Link>
                     </div>
+
                     <div className="header_-_create-quiz offset-1 col-2">
-                        <Link to="/create-quiz">
-                            <h3>
-                                <FaPlusCircle
-                                    className="header_-_create-quiz-icon"/> Create
-                                New Quiz
-                            </h3>
-                        </Link>
+
+                        {(!this.props.quizzing) ? createQuizBtn :""}
+
+                        {/*<Link to="/create-quiz">*/}
+                        {/*    <h3>*/}
+                        {/*        <FaPlusCircle*/}
+                        {/*            className="header_-_create-quiz-icon"/> Create*/}
+                        {/*        New Quiz*/}
+                        {/*    </h3>*/}
+                        {/*</Link>*/}
                     </div>
 
                     <div className="header_-_search-box offset-1 col-3">
-                        <input type="text" placeholder="Search"/>
-                        <button><FaSearch/></button>
+                        {(!this.props.quizzing) ? searchBar : ""}
+
+                        {/*<input type="text" placeholder="Search"/>*/}
+                        {/*<button><FaSearch/></button>*/}
                     </div>
 
                     <div className="header_-_nav-links offset-2 col-2">

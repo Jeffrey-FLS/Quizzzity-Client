@@ -41,7 +41,7 @@ function createQuiz(quiz, questions) {
                     // console.log(`
                     //     HISTORY IS ${JSON.stringify(history)}
                     //  `);
-                    history.push('/');
+                    history.push('/home');
                 },
                 error => dispatch(failure(error.toString()))
             );
