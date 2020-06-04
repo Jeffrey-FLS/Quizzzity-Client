@@ -1,0 +1,138 @@
+/**
+* Example of property order and category naming convention for comment
+********************************************************************************
+* .class {
+*  //------------------------- Font & Text
+*    text-align: val;
+*    text-shadow: val;
+*  //------------------------- Color & Background
+*    background-color: val;
+*    color: val;
+*    opacity: val;
+*  //------------------------- Box
+*    height: val;
+*    width: val;
+*    border-radius: val;
+*  //------------------------- Positioning
+*    position: absolute;
+*    bottom: 0;
+*  //------------------------- List
+*    property: val;
+*  //------------------------- Table
+*    property: val;
+*  //------------------------- Miscellaneous
+*    property: val;
+*  //------------------------- Effect
+*    property: val;
+* }
+*/
+
+// Imports ---------------------------------------------------------------------
+@import 'styles/_palette.scss';
+//@import "src/libs/bootstrap-4.4.1/scss/_functions.scss";
+//@import "src/libs/bootstrap-4.4.1/scss/mixins/_breakpoints.scss";
+//@import "src/libs/bootstrap-4.4.1/scss/_variables.scss";
+
+/*******************************************************************************
+* Default |
+*********/
+
+// Variables
+$page-container-witdh: 91%;
+
+.quizzingPage {
+  height: 100%;
+  width: 100%;
+  background-color: #616161;
+  position: absolute;
+}
+
+.quizzingPage_-_question-board {
+  background-color: $palette-white;
+  height: 400px;
+  border-radius: 25px;
+  margin: 50px 0;
+  text-align: center;
+  box-shadow: 0 3px 7px 0 rgba(0, 0, 0, 0.35);
+
+
+  h3 {
+    line-height: 15rem;
+  }
+}
+
+//.quizzingPage
+
+.quizzingPage_-_question {
+  text-align: center;
+  color: white;
+
+  button {
+    color: white;
+    width: inherit;
+    padding: 15px;
+    font-size: 2rem;
+    background-color: $palette-blue;
+    margin: 25px 0;
+    border-radius: 25px;
+    box-shadow: 0 3px 7px 0 rgba(0, 0, 0, 0.35);
+  }
+}
+
+
+// Animation ----------------------------------------------------------------------
+
+.quizzingPage_-_question button,
+.quizzingPage_-_question button:hover {
+  transition: all 0.1s ease-in-out;
+}
+
+// Active ----------------------------------------------------------------------
+
+// Hover -----------------------------------------------------------------------
+.quizzingPage_-_question button:hover {
+  background-color: $palette-white;
+  border: 2px solid $palette-blue;
+  color: $palette-black
+}
+
+// Layouts ---------------------------------------------------------------------
+
+// Media Sizes -----------------------------------------------------------------
+
+
+/*******************************************************************************
+* XS |
+****/
+
+//@include mq('xs') {
+//
+//}
+
+
+/*******************************************************************************
+* SM |
+****/
+
+//@include mq('sm') {
+//
+//}
+
+
+/*******************************************************************************
+* MD |
+****/
+
+//@include mq('md') {
+//
+//}
+
+
+/*******************************************************************************
+* LG |
+****/
+
+//@include mq('lg') {
+//
+//}
+

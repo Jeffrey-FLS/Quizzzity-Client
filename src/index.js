@@ -29,6 +29,10 @@ WebFont.load({
     }
 });
 
+console.log(`
+    CURRENT PATH LOCATION IS ${history.location.pathname}
+`);
+
 // console.log(store);
 
 ReactDOM.render(
