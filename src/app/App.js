@@ -11,6 +11,7 @@ import LoginPage from "./pages/login/LoginPage.component";
 import UserHomePage from "./pages/userHome/UserHomePage.component";
 import TestPage from "./pages/test/TestPage.component";
 import CreateQuizPage from "./pages/createQuiz/CreateQuizPage.component";
+import CreateUserPage from "./pages/createUser/createUserPage.component";
 import QuizzingPage from "app/pages/quizzing/QuizzingPage.component";
 
 import { history } from "redux/helpers";
@@ -53,11 +54,13 @@ class App extends Component {
                 <Switch>
                     {/*<Route path="/userMain" render={(routerProps) => <UserMenuPage quizzes={this.state.quizzes} {...routerProps}/>}/>*/}
                     <Route path="/login" component={LoginPage}/>
+                    <Route path="/create-user" component={CreateUserPage}/>
                     <Route path="/create-quiz" component={CreateQuizPage}/>
                     <Route path="/test" component={TestPage}/>
                     <Route path="/home" component={UserHomePage}/>
                     <Route path="/quizzing" component={QuizzingPage}/>
-                    <Route exact path="/" render={() => (<Redirect to="/quizzing"/>)}/>
+                    {/* <Route exact path="/" render={() => (<Redirect to="/quizzing"/>)}/> */}
+                    <Route exact path="/" render={() => (<Redirect to="/create-user"/>)}/>
                 </Switch>
             </div>
         );
