@@ -43,7 +43,7 @@ function createUser(user) {
     return (dispatch) => {
         dispatch(request());
 
-        userService.createQuiz(user)
+        userService.createUser(user)
             .then(
                 users => {
                     dispatch(success(users));
