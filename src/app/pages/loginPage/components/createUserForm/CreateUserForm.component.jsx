@@ -5,10 +5,10 @@ import React from 'react';
 import './CreateUserForm.component.scss';
 
 import {
-    FaUserAlt,
-    FaLock,
-    FaFacebookF,
-    FaGoogle
+    FaUserAlt
+    // FaLock,
+    // FaFacebookF,
+    // FaGoogle
 } from 'react-icons/fa';
 
 const CreateUserForm = (props) => {
