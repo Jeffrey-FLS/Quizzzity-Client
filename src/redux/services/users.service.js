@@ -1,3 +1,4 @@
+
 import axios from 'axios'
 // import { API } from '../helpers';
 const BASE_URL = process.env.REACT_APP_BASE_URL;
@@ -5,6 +6,7 @@ const BASE_URL = process.env.REACT_APP_BASE_URL;
 
 export const userService = {
     fetchUsers,
+    createUser,
     login
 };
 
@@ -14,6 +16,20 @@ async function fetchUsers() {
             .catch(error => Promise.reject(error));
 }
 
+
+async function createUser(user) {
+    console.log(`
+        USER VALUE IS ${JSON.stringify(user)}
+    `);
+
+    const config = {
+        user: user
+    };
+
+    return await axios.post(`${BASE_URL}/users`, config)
+        .then(resp => resp.data)
+        .catch(error => Promise.reject(error));
+}
 
 //FIXME: login function stills needs work to be done
 
